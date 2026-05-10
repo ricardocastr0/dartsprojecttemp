@@ -1,0 +1,5917 @@
+{
+  "config_ref": {
+    "curriculum_taper_episodes": 2000,
+    "max_steps_effective": 40,
+    "max_steps_project_cfg": 40
+  },
+  "episode_columns_ok": true,
+  "segments": {
+    "curriculum": {
+      "n": 2000,
+      "return_mean": 3.177009660710767,
+      "return_std": 23.80404036511926,
+      "return_min": -260.4424294172302,
+      "return_max": 144.51542165183457,
+      "return_p25": -11.709483554600153,
+      "return_p50": -0.07509704400978394,
+      "return_p75": 12.631300012466417,
+      "length_mean": 10.909,
+      "length_std": 3.0261723348150547,
+      "release_rate": 0.997,
+      "timeout_rate": 0.003,
+      "timeout_count_released0": 6,
+      "timeout_count_horizon": 6
+    },
+    "post_curriculum": {
+      "n": 68944,
+      "return_mean": 114.15787842346992,
+      "return_std": 51.23935540782387,
+      "return_min": -900.9521067299453,
+      "return_max": 146.87706874125737,
+      "return_p25": 115.23439433959777,
+      "return_p50": 140.82315331483875,
+      "return_p75": 144.17726080278624,
+      "length_mean": 14.187906126711534,
+      "length_std": 8.028769375117108,
+      "release_rate": 0.9297690879554421,
+      "timeout_rate": 0.07120271524715711,
+      "timeout_count_released0": 4842,
+      "timeout_count_horizon": 4909
+    },
+    "all": {
+      "n": 70944,
+      "return_mean": 111.02918906953556,
+      "return_std": 53.89681120947548,
+      "return_min": -900.9521067299453,
+      "return_max": 146.87706874125737,
+      "return_p25": 109.78194282666684,
+      "return_p50": 140.4858741958256,
+      "return_p75": 144.11916557497634,
+      "length_mean": 14.095469666215607,
+      "length_std": 7.949629625686543,
+      "release_rate": 0.9316644113667117,
+      "timeout_rate": 0.06927999548940009,
+      "timeout_count_released0": 4848,
+      "timeout_count_horizon": 4915
+    }
+  },
+  "segments_detail": {
+    "post_curriculum_conditionals": {
+      "released_finish": {
+        "n": 64035,
+        "return_mean": 124.54584250533537,
+        "return_std": 35.98653651727105,
+        "return_min": -617.3134721531586,
+        "return_max": 146.87706874125737
+      },
+      "timeout_or_horizon": {
+        "n": 4909,
+        "return_mean": -21.346965736696156,
+        "return_std": 14.529326644121928,
+        "return_min": -900.9521067299453,
+        "return_max": 138.54281693248558
+      }
+    }
+  },
+  "rolling_return": {
+    "window": 50,
+    "note": "Rolling mean over CSV row order (chronological episodes); indices index episode_return rows.",
+    "end_row_indices_sample": [
+      49,
+      50,
+      51,
+      52,
+      53
+    ],
+    "episode_index_at_last_window_end": 70944,
+    "episode_index_at_first_window_end": 50,
+    "env_step_at_last_window_end": 999989,
+    "tail_window_timeout_fraction": 0.02,
+    "last_smoothed_mean": 139.27715999269859,
+    "first_smoothed_mean": -7.673134110410267
+  },
+  "rolling_return_post_curriculum_only": {
+    "window_used": 50,
+    "last_smoothed_mean": 139.27715999269859,
+    "first_smoothed_mean": -18.27780157912438,
+    "n_episodes": 68944
+  },
+  "eval_metrics": {
+    "n_checkpoints": 10,
+    "first": {
+      "step": 100000.0,
+      "mean_reward": 22.806095827358973,
+      "std_reward": 37.64677711006056,
+      "mean_reward_released": 35.586625008094416,
+      "std_reward_released": 33.2073349878185,
+      "mean_reward_timeout": -21.215726906285305,
+      "std_reward_timeout": 0.44290238879668276,
+      "released_eval_count": 31.0,
+      "timeout_eval_count": 9.0,
+      "mean_landing_dist": 1.4403726746373953,
+      "std_landing_dist": 4.484583325292226,
+      "release_rate": 0.775,
+      "mean_score": 33.56051063124755
+    },
+    "last": {
+      "step": 1000000.0,
+      "mean_reward": 141.88245563985953,
+      "std_reward": 4.469737056446943,
+      "mean_reward_released": 141.88245563985953,
+      "std_reward_released": 4.469737056446943,
+      "mean_reward_timeout": null,
+      "std_reward_timeout": null,
+      "released_eval_count": 40.0,
+      "timeout_eval_count": 0.0,
+      "mean_landing_dist": 0.0218675520978985,
+      "std_landing_dist": 0.009221586473012603,
+      "release_rate": 1.0,
+      "mean_score": 106.72968681277234
+    },
+    "delta_mean_landing_dist": -1.4185051225394967
+  },
+  "pattern_analysis": {
+    "n_rows": 70944,
+    "episode_index_min": 1,
+    "episode_index_max": 70944,
+    "overall_timeout_rate": 0.06927999548940009,
+    "bins_by_episode_index": {
+      "bin_width": 100,
+      "bins": [
+        {
+          "episode_lo": 1,
+          "episode_hi": 100,
+          "n": 100,
+          "return_mean": -7.783606832554281,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 101,
+          "episode_hi": 200,
+          "n": 100,
+          "return_mean": -5.532995877023466,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 201,
+          "episode_hi": 300,
+          "n": 100,
+          "return_mean": -0.30179104329024764,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 301,
+          "episode_hi": 400,
+          "n": 100,
+          "return_mean": 6.694192501931938,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 401,
+          "episode_hi": 500,
+          "n": 100,
+          "return_mean": -0.49337926150629213,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 501,
+          "episode_hi": 600,
+          "n": 100,
+          "return_mean": -0.7042338608753818,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 601,
+          "episode_hi": 700,
+          "n": 100,
+          "return_mean": 4.5268873880850125,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 701,
+          "episode_hi": 800,
+          "n": 100,
+          "return_mean": 2.326324807746617,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 801,
+          "episode_hi": 900,
+          "n": 100,
+          "return_mean": 3.295449478494389,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 901,
+          "episode_hi": 1000,
+          "n": 100,
+          "return_mean": 5.1112325579519595,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1001,
+          "episode_hi": 1100,
+          "n": 100,
+          "return_mean": -6.428984629567021,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1101,
+          "episode_hi": 1200,
+          "n": 100,
+          "return_mean": 3.605385098463511,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1201,
+          "episode_hi": 1300,
+          "n": 100,
+          "return_mean": -0.6265668935570134,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1301,
+          "episode_hi": 1400,
+          "n": 100,
+          "return_mean": 0.4555122870802657,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1401,
+          "episode_hi": 1500,
+          "n": 100,
+          "return_mean": 4.477467855824676,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1501,
+          "episode_hi": 1600,
+          "n": 100,
+          "return_mean": 3.047362736030315,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1601,
+          "episode_hi": 1700,
+          "n": 100,
+          "return_mean": 14.453396339539243,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1701,
+          "episode_hi": 1800,
+          "n": 100,
+          "return_mean": 18.758061498949406,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1801,
+          "episode_hi": 1900,
+          "n": 100,
+          "return_mean": 18.578096341222082,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 1901,
+          "episode_hi": 2000,
+          "n": 100,
+          "return_mean": 0.08238272126962015,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 2001,
+          "episode_hi": 2100,
+          "n": 100,
+          "return_mean": -19.38671405876287,
+          "timeout_rate": 0.93,
+          "release_rate": 0.08
+        },
+        {
+          "episode_lo": 2101,
+          "episode_hi": 2200,
+          "n": 100,
+          "return_mean": -20.85642440464226,
+          "timeout_rate": 1.0,
+          "release_rate": 0.01
+        },
+        {
+          "episode_lo": 2201,
+          "episode_hi": 2300,
+          "n": 100,
+          "return_mean": -21.04397116154521,
+          "timeout_rate": 1.0,
+          "release_rate": 0.0
+        },
+        {
+          "episode_lo": 2301,
+          "episode_hi": 2400,
+          "n": 100,
+          "return_mean": -19.939050563617585,
+          "timeout_rate": 0.66,
+          "release_rate": 0.34
+        },
+        {
+          "episode_lo": 2401,
+          "episode_hi": 2500,
+          "n": 100,
+          "return_mean": -11.277094537142226,
+          "timeout_rate": 0.38,
+          "release_rate": 0.63
+        },
+        {
+          "episode_lo": 2501,
+          "episode_hi": 2600,
+          "n": 100,
+          "return_mean": -12.121820285912872,
+          "timeout_rate": 0.56,
+          "release_rate": 0.45
+        },
+        {
+          "episode_lo": 2601,
+          "episode_hi": 2700,
+          "n": 100,
+          "return_mean": -12.654075949283538,
+          "timeout_rate": 0.47,
+          "release_rate": 0.54
+        },
+        {
+          "episode_lo": 2701,
+          "episode_hi": 2800,
+          "n": 100,
+          "return_mean": -12.080381523445038,
+          "timeout_rate": 0.61,
+          "release_rate": 0.41
+        },
+        {
+          "episode_lo": 2801,
+          "episode_hi": 2900,
+          "n": 100,
+          "return_mean": -13.526985628798885,
+          "timeout_rate": 0.7,
+          "release_rate": 0.31
+        },
+        {
+          "episode_lo": 2901,
+          "episode_hi": 3000,
+          "n": 100,
+          "return_mean": -13.530524383827947,
+          "timeout_rate": 0.69,
+          "release_rate": 0.34
+        },
+        {
+          "episode_lo": 3001,
+          "episode_hi": 3100,
+          "n": 100,
+          "return_mean": -5.790920447780474,
+          "timeout_rate": 0.47,
+          "release_rate": 0.54
+        },
+        {
+          "episode_lo": 3101,
+          "episode_hi": 3200,
+          "n": 100,
+          "return_mean": -1.9564181563373773,
+          "timeout_rate": 0.28,
+          "release_rate": 0.73
+        },
+        {
+          "episode_lo": 3201,
+          "episode_hi": 3300,
+          "n": 100,
+          "return_mean": 10.792553924966063,
+          "timeout_rate": 0.19,
+          "release_rate": 0.82
+        },
+        {
+          "episode_lo": 3301,
+          "episode_hi": 3400,
+          "n": 100,
+          "return_mean": -17.325065556627756,
+          "timeout_rate": 0.83,
+          "release_rate": 0.17
+        },
+        {
+          "episode_lo": 3401,
+          "episode_hi": 3500,
+          "n": 100,
+          "return_mean": -11.055206549398138,
+          "timeout_rate": 0.6,
+          "release_rate": 0.41
+        },
+        {
+          "episode_lo": 3501,
+          "episode_hi": 3600,
+          "n": 100,
+          "return_mean": -9.347464759462946,
+          "timeout_rate": 0.46,
+          "release_rate": 0.54
+        },
+        {
+          "episode_lo": 3601,
+          "episode_hi": 3700,
+          "n": 100,
+          "return_mean": -0.7351019912601899,
+          "timeout_rate": 0.4,
+          "release_rate": 0.61
+        },
+        {
+          "episode_lo": 3701,
+          "episode_hi": 3800,
+          "n": 100,
+          "return_mean": 7.493688593848357,
+          "timeout_rate": 0.2,
+          "release_rate": 0.8
+        },
+        {
+          "episode_lo": 3801,
+          "episode_hi": 3900,
+          "n": 100,
+          "return_mean": 8.374118112575475,
+          "timeout_rate": 0.19,
+          "release_rate": 0.83
+        },
+        {
+          "episode_lo": 3901,
+          "episode_hi": 4000,
+          "n": 100,
+          "return_mean": 9.245134361797486,
+          "timeout_rate": 0.3,
+          "release_rate": 0.7
+        },
+        {
+          "episode_lo": 4001,
+          "episode_hi": 4100,
+          "n": 100,
+          "return_mean": 17.817871974183543,
+          "timeout_rate": 0.21,
+          "release_rate": 0.81
+        },
+        {
+          "episode_lo": 4101,
+          "episode_hi": 4200,
+          "n": 100,
+          "return_mean": 21.762638570323105,
+          "timeout_rate": 0.13,
+          "release_rate": 0.88
+        },
+        {
+          "episode_lo": 4201,
+          "episode_hi": 4300,
+          "n": 100,
+          "return_mean": 24.03085940435146,
+          "timeout_rate": 0.08,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 4301,
+          "episode_hi": 4400,
+          "n": 100,
+          "return_mean": 24.396993128724247,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 4401,
+          "episode_hi": 4500,
+          "n": 100,
+          "return_mean": 23.60703582121852,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 4501,
+          "episode_hi": 4600,
+          "n": 100,
+          "return_mean": 27.684290608015036,
+          "timeout_rate": 0.09,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 4601,
+          "episode_hi": 4700,
+          "n": 100,
+          "return_mean": 23.290642239563695,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 4701,
+          "episode_hi": 4800,
+          "n": 100,
+          "return_mean": 21.217200159167145,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 4801,
+          "episode_hi": 4900,
+          "n": 100,
+          "return_mean": 20.958838951338567,
+          "timeout_rate": 0.06,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 4901,
+          "episode_hi": 5000,
+          "n": 100,
+          "return_mean": 23.70879213703849,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 5001,
+          "episode_hi": 5100,
+          "n": 100,
+          "return_mean": 21.07089699108116,
+          "timeout_rate": 0.11,
+          "release_rate": 0.89
+        },
+        {
+          "episode_lo": 5101,
+          "episode_hi": 5200,
+          "n": 100,
+          "return_mean": 31.499908886145818,
+          "timeout_rate": 0.09,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 5201,
+          "episode_hi": 5300,
+          "n": 100,
+          "return_mean": 42.479842663173294,
+          "timeout_rate": 0.09,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 5301,
+          "episode_hi": 5400,
+          "n": 100,
+          "return_mean": 30.410419645211686,
+          "timeout_rate": 0.08,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 5401,
+          "episode_hi": 5500,
+          "n": 100,
+          "return_mean": 28.756215268310115,
+          "timeout_rate": 0.17,
+          "release_rate": 0.84
+        },
+        {
+          "episode_lo": 5501,
+          "episode_hi": 5600,
+          "n": 100,
+          "return_mean": 24.27376451823141,
+          "timeout_rate": 0.23,
+          "release_rate": 0.78
+        },
+        {
+          "episode_lo": 5601,
+          "episode_hi": 5700,
+          "n": 100,
+          "return_mean": 26.97300218714196,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 5701,
+          "episode_hi": 5800,
+          "n": 100,
+          "return_mean": 29.291643795781084,
+          "timeout_rate": 0.07,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 5801,
+          "episode_hi": 5900,
+          "n": 100,
+          "return_mean": 32.78562542677979,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 5901,
+          "episode_hi": 6000,
+          "n": 100,
+          "return_mean": 32.08914718116048,
+          "timeout_rate": 0.11,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 6001,
+          "episode_hi": 6100,
+          "n": 100,
+          "return_mean": 42.17741720539809,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 6101,
+          "episode_hi": 6200,
+          "n": 100,
+          "return_mean": 42.359538221385634,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 6201,
+          "episode_hi": 6300,
+          "n": 100,
+          "return_mean": 40.08281718821342,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 6301,
+          "episode_hi": 6400,
+          "n": 100,
+          "return_mean": 33.82835750937879,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 6401,
+          "episode_hi": 6500,
+          "n": 100,
+          "return_mean": 35.24181802655981,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 6501,
+          "episode_hi": 6600,
+          "n": 100,
+          "return_mean": 35.92443498895903,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 6601,
+          "episode_hi": 6700,
+          "n": 100,
+          "return_mean": 35.572505090522405,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 6701,
+          "episode_hi": 6800,
+          "n": 100,
+          "return_mean": 39.26823617465066,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 6801,
+          "episode_hi": 6900,
+          "n": 100,
+          "return_mean": 38.70072130370097,
+          "timeout_rate": 0.01,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 6901,
+          "episode_hi": 7000,
+          "n": 100,
+          "return_mean": 45.51683402812159,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 7001,
+          "episode_hi": 7100,
+          "n": 100,
+          "return_mean": 50.33041428735582,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 7101,
+          "episode_hi": 7200,
+          "n": 100,
+          "return_mean": 47.33757727582714,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 7201,
+          "episode_hi": 7300,
+          "n": 100,
+          "return_mean": 55.62974516665868,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 7301,
+          "episode_hi": 7400,
+          "n": 100,
+          "return_mean": 59.50767616366748,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 7401,
+          "episode_hi": 7500,
+          "n": 100,
+          "return_mean": 60.37646104626193,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 7501,
+          "episode_hi": 7600,
+          "n": 100,
+          "return_mean": 58.70386530378762,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 7601,
+          "episode_hi": 7700,
+          "n": 100,
+          "return_mean": 49.569058289939704,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 7701,
+          "episode_hi": 7800,
+          "n": 100,
+          "return_mean": 67.31179812200826,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 7801,
+          "episode_hi": 7900,
+          "n": 100,
+          "return_mean": 56.73550757248235,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 7901,
+          "episode_hi": 8000,
+          "n": 100,
+          "return_mean": 54.68431607118481,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 8001,
+          "episode_hi": 8100,
+          "n": 100,
+          "return_mean": 56.67467812329548,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 8101,
+          "episode_hi": 8200,
+          "n": 100,
+          "return_mean": 65.44482887658845,
+          "timeout_rate": 0.09,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 8201,
+          "episode_hi": 8300,
+          "n": 100,
+          "return_mean": 66.19435308969285,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 8301,
+          "episode_hi": 8400,
+          "n": 100,
+          "return_mean": 59.31684248597548,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 8401,
+          "episode_hi": 8500,
+          "n": 100,
+          "return_mean": 62.94163446537322,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 8501,
+          "episode_hi": 8600,
+          "n": 100,
+          "return_mean": 61.3536114015752,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 8601,
+          "episode_hi": 8700,
+          "n": 100,
+          "return_mean": 62.58404455017877,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 8701,
+          "episode_hi": 8800,
+          "n": 100,
+          "return_mean": 63.41408426875883,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 8801,
+          "episode_hi": 8900,
+          "n": 100,
+          "return_mean": 68.58013659092936,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 8901,
+          "episode_hi": 9000,
+          "n": 100,
+          "return_mean": 64.22798854116441,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 9001,
+          "episode_hi": 9100,
+          "n": 100,
+          "return_mean": 65.76249768977198,
+          "timeout_rate": 0.02,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 9101,
+          "episode_hi": 9200,
+          "n": 100,
+          "return_mean": 68.60211694162176,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 9201,
+          "episode_hi": 9300,
+          "n": 100,
+          "return_mean": 64.97651134988516,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 9301,
+          "episode_hi": 9400,
+          "n": 100,
+          "return_mean": 75.58333062239574,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 9401,
+          "episode_hi": 9500,
+          "n": 100,
+          "return_mean": 70.56192634563709,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 9501,
+          "episode_hi": 9600,
+          "n": 100,
+          "return_mean": 76.75521588489764,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 9601,
+          "episode_hi": 9700,
+          "n": 100,
+          "return_mean": 78.78521899400651,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 9701,
+          "episode_hi": 9800,
+          "n": 100,
+          "return_mean": 79.10652227273816,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 9801,
+          "episode_hi": 9900,
+          "n": 100,
+          "return_mean": 69.195021004827,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 9901,
+          "episode_hi": 10000,
+          "n": 100,
+          "return_mean": 75.49954975366595,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 10001,
+          "episode_hi": 10100,
+          "n": 100,
+          "return_mean": 69.08965094011506,
+          "timeout_rate": 0.01,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 10101,
+          "episode_hi": 10200,
+          "n": 100,
+          "return_mean": 73.52803103054003,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 10201,
+          "episode_hi": 10300,
+          "n": 100,
+          "return_mean": 68.65931919614562,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 10301,
+          "episode_hi": 10400,
+          "n": 100,
+          "return_mean": 87.52415723882929,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 10401,
+          "episode_hi": 10500,
+          "n": 100,
+          "return_mean": 93.72048467724485,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 10501,
+          "episode_hi": 10600,
+          "n": 100,
+          "return_mean": 94.63601412858965,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 10601,
+          "episode_hi": 10700,
+          "n": 100,
+          "return_mean": 86.31138195768075,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 10701,
+          "episode_hi": 10800,
+          "n": 100,
+          "return_mean": 100.62307629612225,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 10801,
+          "episode_hi": 10900,
+          "n": 100,
+          "return_mean": 91.7120770488612,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 10901,
+          "episode_hi": 11000,
+          "n": 100,
+          "return_mean": 89.00404504468081,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 11001,
+          "episode_hi": 11100,
+          "n": 100,
+          "return_mean": 88.05710220871015,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 11101,
+          "episode_hi": 11200,
+          "n": 100,
+          "return_mean": 87.17393225747465,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 11201,
+          "episode_hi": 11300,
+          "n": 100,
+          "return_mean": 82.84531052151297,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 11301,
+          "episode_hi": 11400,
+          "n": 100,
+          "return_mean": 87.96051023262106,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 11401,
+          "episode_hi": 11500,
+          "n": 100,
+          "return_mean": 80.33931838387679,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 11501,
+          "episode_hi": 11600,
+          "n": 100,
+          "return_mean": 95.1091007449358,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 11601,
+          "episode_hi": 11700,
+          "n": 100,
+          "return_mean": 91.86640242294068,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 11701,
+          "episode_hi": 11800,
+          "n": 100,
+          "return_mean": 92.10103677115005,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 11801,
+          "episode_hi": 11900,
+          "n": 100,
+          "return_mean": 54.259490358416386,
+          "timeout_rate": 0.12,
+          "release_rate": 0.88
+        },
+        {
+          "episode_lo": 11901,
+          "episode_hi": 12000,
+          "n": 100,
+          "return_mean": -23.708054764414246,
+          "timeout_rate": 1.0,
+          "release_rate": 0.0
+        },
+        {
+          "episode_lo": 12001,
+          "episode_hi": 12100,
+          "n": 100,
+          "return_mean": -27.266938434804516,
+          "timeout_rate": 0.98,
+          "release_rate": 0.02
+        },
+        {
+          "episode_lo": 12101,
+          "episode_hi": 12200,
+          "n": 100,
+          "return_mean": -20.962429938343988,
+          "timeout_rate": 0.98,
+          "release_rate": 0.02
+        },
+        {
+          "episode_lo": 12201,
+          "episode_hi": 12300,
+          "n": 100,
+          "return_mean": 42.80222602782191,
+          "timeout_rate": 0.43,
+          "release_rate": 0.58
+        },
+        {
+          "episode_lo": 12301,
+          "episode_hi": 12400,
+          "n": 100,
+          "return_mean": 93.2849285677261,
+          "timeout_rate": 0.04,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 12401,
+          "episode_hi": 12500,
+          "n": 100,
+          "return_mean": 97.37342237007636,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 12501,
+          "episode_hi": 12600,
+          "n": 100,
+          "return_mean": 111.55664216613326,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 12601,
+          "episode_hi": 12700,
+          "n": 100,
+          "return_mean": 115.96898975575004,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 12701,
+          "episode_hi": 12800,
+          "n": 100,
+          "return_mean": 120.51388675480422,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 12801,
+          "episode_hi": 12900,
+          "n": 100,
+          "return_mean": 124.82874154644101,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 12901,
+          "episode_hi": 13000,
+          "n": 100,
+          "return_mean": 120.39500685905504,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13001,
+          "episode_hi": 13100,
+          "n": 100,
+          "return_mean": 118.06163339345748,
+          "timeout_rate": 0.01,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13101,
+          "episode_hi": 13200,
+          "n": 100,
+          "return_mean": 123.20288895228147,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13201,
+          "episode_hi": 13300,
+          "n": 100,
+          "return_mean": 118.87394579944059,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13301,
+          "episode_hi": 13400,
+          "n": 100,
+          "return_mean": 120.02638776396424,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13401,
+          "episode_hi": 13500,
+          "n": 100,
+          "return_mean": 117.50033177989327,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 13501,
+          "episode_hi": 13600,
+          "n": 100,
+          "return_mean": 119.2399686976891,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13601,
+          "episode_hi": 13700,
+          "n": 100,
+          "return_mean": 110.97625815878004,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 13701,
+          "episode_hi": 13800,
+          "n": 100,
+          "return_mean": 113.7114454910923,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 13801,
+          "episode_hi": 13900,
+          "n": 100,
+          "return_mean": 118.83784889386254,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 13901,
+          "episode_hi": 14000,
+          "n": 100,
+          "return_mean": 114.77589878124368,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 14001,
+          "episode_hi": 14100,
+          "n": 100,
+          "return_mean": 114.80404466548094,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 14101,
+          "episode_hi": 14200,
+          "n": 100,
+          "return_mean": 116.52236269478408,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14201,
+          "episode_hi": 14300,
+          "n": 100,
+          "return_mean": 118.24070025323753,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14301,
+          "episode_hi": 14400,
+          "n": 100,
+          "return_mean": 113.06881477335442,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14401,
+          "episode_hi": 14500,
+          "n": 100,
+          "return_mean": 113.55871812728061,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14501,
+          "episode_hi": 14600,
+          "n": 100,
+          "return_mean": 114.76388437309826,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14601,
+          "episode_hi": 14700,
+          "n": 100,
+          "return_mean": 111.36546797844954,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 14701,
+          "episode_hi": 14800,
+          "n": 100,
+          "return_mean": 117.50426055195379,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14801,
+          "episode_hi": 14900,
+          "n": 100,
+          "return_mean": 123.31312347942173,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 14901,
+          "episode_hi": 15000,
+          "n": 100,
+          "return_mean": 119.29355852105078,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15001,
+          "episode_hi": 15100,
+          "n": 100,
+          "return_mean": 118.25095694813001,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15101,
+          "episode_hi": 15200,
+          "n": 100,
+          "return_mean": 121.53912080880414,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15201,
+          "episode_hi": 15300,
+          "n": 100,
+          "return_mean": 119.21112486581174,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15301,
+          "episode_hi": 15400,
+          "n": 100,
+          "return_mean": 118.89244799760282,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15401,
+          "episode_hi": 15500,
+          "n": 100,
+          "return_mean": 115.83152017202116,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15501,
+          "episode_hi": 15600,
+          "n": 100,
+          "return_mean": 119.33152169875922,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15601,
+          "episode_hi": 15700,
+          "n": 100,
+          "return_mean": 123.03448729032777,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15701,
+          "episode_hi": 15800,
+          "n": 100,
+          "return_mean": 119.19282902380326,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15801,
+          "episode_hi": 15900,
+          "n": 100,
+          "return_mean": 119.51546555809423,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 15901,
+          "episode_hi": 16000,
+          "n": 100,
+          "return_mean": 125.72748391932836,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16001,
+          "episode_hi": 16100,
+          "n": 100,
+          "return_mean": 122.46513615708461,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16101,
+          "episode_hi": 16200,
+          "n": 100,
+          "return_mean": 123.77446229028867,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16201,
+          "episode_hi": 16300,
+          "n": 100,
+          "return_mean": 118.10951342331384,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16301,
+          "episode_hi": 16400,
+          "n": 100,
+          "return_mean": 119.1579962895304,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16401,
+          "episode_hi": 16500,
+          "n": 100,
+          "return_mean": 117.6048480755335,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16501,
+          "episode_hi": 16600,
+          "n": 100,
+          "return_mean": 120.98354122565493,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16601,
+          "episode_hi": 16700,
+          "n": 100,
+          "return_mean": 120.50232781339619,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16701,
+          "episode_hi": 16800,
+          "n": 100,
+          "return_mean": 123.81040885861685,
+          "timeout_rate": 0.01,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 16801,
+          "episode_hi": 16900,
+          "n": 100,
+          "return_mean": 115.1610417264477,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 16901,
+          "episode_hi": 17000,
+          "n": 100,
+          "return_mean": 119.57654316754082,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17001,
+          "episode_hi": 17100,
+          "n": 100,
+          "return_mean": 113.29468384917013,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 17101,
+          "episode_hi": 17200,
+          "n": 100,
+          "return_mean": 118.34953975202342,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17201,
+          "episode_hi": 17300,
+          "n": 100,
+          "return_mean": 122.60857839135912,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17301,
+          "episode_hi": 17400,
+          "n": 100,
+          "return_mean": 116.29230654434113,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 17401,
+          "episode_hi": 17500,
+          "n": 100,
+          "return_mean": 117.11979896203131,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 17501,
+          "episode_hi": 17600,
+          "n": 100,
+          "return_mean": 117.71333772836175,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17601,
+          "episode_hi": 17700,
+          "n": 100,
+          "return_mean": 115.39747202580483,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17701,
+          "episode_hi": 17800,
+          "n": 100,
+          "return_mean": 119.4393071323229,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17801,
+          "episode_hi": 17900,
+          "n": 100,
+          "return_mean": 119.90326752497113,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 17901,
+          "episode_hi": 18000,
+          "n": 100,
+          "return_mean": 116.49909594714747,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 18001,
+          "episode_hi": 18100,
+          "n": 100,
+          "return_mean": 114.99404052339973,
+          "timeout_rate": 0.02,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 18101,
+          "episode_hi": 18200,
+          "n": 100,
+          "return_mean": 112.33504348359347,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 18201,
+          "episode_hi": 18300,
+          "n": 100,
+          "return_mean": 119.25089243855382,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 18301,
+          "episode_hi": 18400,
+          "n": 100,
+          "return_mean": 120.67813568101485,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 18401,
+          "episode_hi": 18500,
+          "n": 100,
+          "return_mean": 119.70639648078681,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 18501,
+          "episode_hi": 18600,
+          "n": 100,
+          "return_mean": 120.1955174916841,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 18601,
+          "episode_hi": 18700,
+          "n": 100,
+          "return_mean": 118.6013163656226,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 18701,
+          "episode_hi": 18800,
+          "n": 100,
+          "return_mean": 117.03439426662058,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 18801,
+          "episode_hi": 18900,
+          "n": 100,
+          "return_mean": 122.51284823066857,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 18901,
+          "episode_hi": 19000,
+          "n": 100,
+          "return_mean": 121.26226644007711,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19001,
+          "episode_hi": 19100,
+          "n": 100,
+          "return_mean": 121.01466575211965,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19101,
+          "episode_hi": 19200,
+          "n": 100,
+          "return_mean": 117.60876648444635,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19201,
+          "episode_hi": 19300,
+          "n": 100,
+          "return_mean": 123.22360369951167,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19301,
+          "episode_hi": 19400,
+          "n": 100,
+          "return_mean": 125.0053916982144,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19401,
+          "episode_hi": 19500,
+          "n": 100,
+          "return_mean": 121.65200454945922,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19501,
+          "episode_hi": 19600,
+          "n": 100,
+          "return_mean": 119.37959919769519,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19601,
+          "episode_hi": 19700,
+          "n": 100,
+          "return_mean": 123.26253808397364,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19701,
+          "episode_hi": 19800,
+          "n": 100,
+          "return_mean": 121.14314250427597,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 19801,
+          "episode_hi": 19900,
+          "n": 100,
+          "return_mean": 119.67502721185771,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 19901,
+          "episode_hi": 20000,
+          "n": 100,
+          "return_mean": 127.36019011427581,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20001,
+          "episode_hi": 20100,
+          "n": 100,
+          "return_mean": 121.66144564478265,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20101,
+          "episode_hi": 20200,
+          "n": 100,
+          "return_mean": 124.47576896318417,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20201,
+          "episode_hi": 20300,
+          "n": 100,
+          "return_mean": 122.65707281854262,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20301,
+          "episode_hi": 20400,
+          "n": 100,
+          "return_mean": 126.88121917847049,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20401,
+          "episode_hi": 20500,
+          "n": 100,
+          "return_mean": 124.96090157107461,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20501,
+          "episode_hi": 20600,
+          "n": 100,
+          "return_mean": 121.46695436631711,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20601,
+          "episode_hi": 20700,
+          "n": 100,
+          "return_mean": 121.97905547918161,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 20701,
+          "episode_hi": 20800,
+          "n": 100,
+          "return_mean": 122.48930252857568,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 20801,
+          "episode_hi": 20900,
+          "n": 100,
+          "return_mean": 127.05192429145009,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 20901,
+          "episode_hi": 21000,
+          "n": 100,
+          "return_mean": 126.11321515910433,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 21001,
+          "episode_hi": 21100,
+          "n": 100,
+          "return_mean": 124.36494081935663,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 21101,
+          "episode_hi": 21200,
+          "n": 100,
+          "return_mean": 123.73528190946709,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 21201,
+          "episode_hi": 21300,
+          "n": 100,
+          "return_mean": 122.68265349398001,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 21301,
+          "episode_hi": 21400,
+          "n": 100,
+          "return_mean": 126.95906344987125,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 21401,
+          "episode_hi": 21500,
+          "n": 100,
+          "return_mean": 123.54505373682696,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 21501,
+          "episode_hi": 21600,
+          "n": 100,
+          "return_mean": 125.19485263074552,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 21601,
+          "episode_hi": 21700,
+          "n": 100,
+          "return_mean": 124.19002159875612,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 21701,
+          "episode_hi": 21800,
+          "n": 100,
+          "return_mean": 123.3936252045191,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 21801,
+          "episode_hi": 21900,
+          "n": 100,
+          "return_mean": 123.34702159227164,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 21901,
+          "episode_hi": 22000,
+          "n": 100,
+          "return_mean": 124.02811315612672,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 22001,
+          "episode_hi": 22100,
+          "n": 100,
+          "return_mean": 123.80224586391941,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 22101,
+          "episode_hi": 22200,
+          "n": 100,
+          "return_mean": 125.3700766625378,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 22201,
+          "episode_hi": 22300,
+          "n": 100,
+          "return_mean": 123.58943987582128,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 22301,
+          "episode_hi": 22400,
+          "n": 100,
+          "return_mean": 122.13120893294621,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 22401,
+          "episode_hi": 22500,
+          "n": 100,
+          "return_mean": 118.63290908229642,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 22501,
+          "episode_hi": 22600,
+          "n": 100,
+          "return_mean": 120.35335174665138,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 22601,
+          "episode_hi": 22700,
+          "n": 100,
+          "return_mean": 114.25721108359505,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 22701,
+          "episode_hi": 22800,
+          "n": 100,
+          "return_mean": 124.25945354262329,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 22801,
+          "episode_hi": 22900,
+          "n": 100,
+          "return_mean": 122.01127897846285,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 22901,
+          "episode_hi": 23000,
+          "n": 100,
+          "return_mean": 126.63781117413112,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 23001,
+          "episode_hi": 23100,
+          "n": 100,
+          "return_mean": 129.93505607622373,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 23101,
+          "episode_hi": 23200,
+          "n": 100,
+          "return_mean": 124.35186610404823,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 23201,
+          "episode_hi": 23300,
+          "n": 100,
+          "return_mean": 124.8316568191181,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 23301,
+          "episode_hi": 23400,
+          "n": 100,
+          "return_mean": 125.27499967957527,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 23401,
+          "episode_hi": 23500,
+          "n": 100,
+          "return_mean": 121.40339420388287,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 23501,
+          "episode_hi": 23600,
+          "n": 100,
+          "return_mean": 129.48205495167866,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 23601,
+          "episode_hi": 23700,
+          "n": 100,
+          "return_mean": 131.44003419181794,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 23701,
+          "episode_hi": 23800,
+          "n": 100,
+          "return_mean": 129.7343939515268,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 23801,
+          "episode_hi": 23900,
+          "n": 100,
+          "return_mean": 121.89050854640416,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 23901,
+          "episode_hi": 24000,
+          "n": 100,
+          "return_mean": 122.30372377216256,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 24001,
+          "episode_hi": 24100,
+          "n": 100,
+          "return_mean": 122.72930650507966,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 24101,
+          "episode_hi": 24200,
+          "n": 100,
+          "return_mean": 124.28391149122496,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 24201,
+          "episode_hi": 24300,
+          "n": 100,
+          "return_mean": 123.57158944677415,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 24301,
+          "episode_hi": 24400,
+          "n": 100,
+          "return_mean": 114.46458946938517,
+          "timeout_rate": 0.11,
+          "release_rate": 0.9
+        },
+        {
+          "episode_lo": 24401,
+          "episode_hi": 24500,
+          "n": 100,
+          "return_mean": 112.86041573987512,
+          "timeout_rate": 0.11,
+          "release_rate": 0.89
+        },
+        {
+          "episode_lo": 24501,
+          "episode_hi": 24600,
+          "n": 100,
+          "return_mean": 117.24400950688062,
+          "timeout_rate": 0.09,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 24601,
+          "episode_hi": 24700,
+          "n": 100,
+          "return_mean": 122.15341899978695,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 24701,
+          "episode_hi": 24800,
+          "n": 100,
+          "return_mean": 120.51528747082591,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 24801,
+          "episode_hi": 24900,
+          "n": 100,
+          "return_mean": 126.97841228162613,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 24901,
+          "episode_hi": 25000,
+          "n": 100,
+          "return_mean": 128.47905672752,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 25001,
+          "episode_hi": 25100,
+          "n": 100,
+          "return_mean": 131.51526445389254,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 25101,
+          "episode_hi": 25200,
+          "n": 100,
+          "return_mean": 125.48860702839858,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 25201,
+          "episode_hi": 25300,
+          "n": 100,
+          "return_mean": 132.35742664194538,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 25301,
+          "episode_hi": 25400,
+          "n": 100,
+          "return_mean": 128.66874054337816,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 25401,
+          "episode_hi": 25500,
+          "n": 100,
+          "return_mean": 127.70133023167513,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 25501,
+          "episode_hi": 25600,
+          "n": 100,
+          "return_mean": 130.00422322815825,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 25601,
+          "episode_hi": 25700,
+          "n": 100,
+          "return_mean": 121.53596333516782,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 25701,
+          "episode_hi": 25800,
+          "n": 100,
+          "return_mean": 131.08640576140797,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 25801,
+          "episode_hi": 25900,
+          "n": 100,
+          "return_mean": 128.66014873120457,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 25901,
+          "episode_hi": 26000,
+          "n": 100,
+          "return_mean": 118.59509577496979,
+          "timeout_rate": 0.09,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 26001,
+          "episode_hi": 26100,
+          "n": 100,
+          "return_mean": 121.05096245830212,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 26101,
+          "episode_hi": 26200,
+          "n": 100,
+          "return_mean": 117.37166204619469,
+          "timeout_rate": 0.1,
+          "release_rate": 0.9
+        },
+        {
+          "episode_lo": 26201,
+          "episode_hi": 26300,
+          "n": 100,
+          "return_mean": 117.30908355628696,
+          "timeout_rate": 0.09,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 26301,
+          "episode_hi": 26400,
+          "n": 100,
+          "return_mean": 128.49467739476407,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 26401,
+          "episode_hi": 26500,
+          "n": 100,
+          "return_mean": 119.75654298742651,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 26501,
+          "episode_hi": 26600,
+          "n": 100,
+          "return_mean": 124.14441787522576,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 26601,
+          "episode_hi": 26700,
+          "n": 100,
+          "return_mean": 127.49529790339649,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 26701,
+          "episode_hi": 26800,
+          "n": 100,
+          "return_mean": 131.61894662120375,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 26801,
+          "episode_hi": 26900,
+          "n": 100,
+          "return_mean": 128.1075908504475,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 26901,
+          "episode_hi": 27000,
+          "n": 100,
+          "return_mean": 126.79744793313016,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 27001,
+          "episode_hi": 27100,
+          "n": 100,
+          "return_mean": 127.1414261820489,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 27101,
+          "episode_hi": 27200,
+          "n": 100,
+          "return_mean": 131.71621799880467,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 27201,
+          "episode_hi": 27300,
+          "n": 100,
+          "return_mean": 128.6541746346981,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 27301,
+          "episode_hi": 27400,
+          "n": 100,
+          "return_mean": 122.1888580135819,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 27401,
+          "episode_hi": 27500,
+          "n": 100,
+          "return_mean": 109.11975122784207,
+          "timeout_rate": 0.18,
+          "release_rate": 0.82
+        },
+        {
+          "episode_lo": 27501,
+          "episode_hi": 27600,
+          "n": 100,
+          "return_mean": 119.10082944606043,
+          "timeout_rate": 0.11,
+          "release_rate": 0.89
+        },
+        {
+          "episode_lo": 27601,
+          "episode_hi": 27700,
+          "n": 100,
+          "return_mean": 131.80366588796815,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 27701,
+          "episode_hi": 27800,
+          "n": 100,
+          "return_mean": 133.9105826935279,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 27801,
+          "episode_hi": 27900,
+          "n": 100,
+          "return_mean": 135.81870906755938,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 27901,
+          "episode_hi": 28000,
+          "n": 100,
+          "return_mean": 133.7694104879539,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 28001,
+          "episode_hi": 28100,
+          "n": 100,
+          "return_mean": 133.40094455448104,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 28101,
+          "episode_hi": 28200,
+          "n": 100,
+          "return_mean": 133.2805419273364,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 28201,
+          "episode_hi": 28300,
+          "n": 100,
+          "return_mean": 129.69052737526212,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 28301,
+          "episode_hi": 28400,
+          "n": 100,
+          "return_mean": 124.90212330697763,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 28401,
+          "episode_hi": 28500,
+          "n": 100,
+          "return_mean": 123.25138626419233,
+          "timeout_rate": 0.09,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 28501,
+          "episode_hi": 28600,
+          "n": 100,
+          "return_mean": 123.72248381775871,
+          "timeout_rate": 0.08,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 28601,
+          "episode_hi": 28700,
+          "n": 100,
+          "return_mean": 128.1853711260724,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 28701,
+          "episode_hi": 28800,
+          "n": 100,
+          "return_mean": 132.91956371999314,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 28801,
+          "episode_hi": 28900,
+          "n": 100,
+          "return_mean": 132.45755874331687,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 28901,
+          "episode_hi": 29000,
+          "n": 100,
+          "return_mean": 127.86306232125365,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 29001,
+          "episode_hi": 29100,
+          "n": 100,
+          "return_mean": 129.3430203803491,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 29101,
+          "episode_hi": 29200,
+          "n": 100,
+          "return_mean": 125.50809387174598,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 29201,
+          "episode_hi": 29300,
+          "n": 100,
+          "return_mean": 114.04170948418499,
+          "timeout_rate": 0.15,
+          "release_rate": 0.85
+        },
+        {
+          "episode_lo": 29301,
+          "episode_hi": 29400,
+          "n": 100,
+          "return_mean": 130.28132574760934,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 29401,
+          "episode_hi": 29500,
+          "n": 100,
+          "return_mean": 133.67428230393472,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 29501,
+          "episode_hi": 29600,
+          "n": 100,
+          "return_mean": 131.19964164747208,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 29601,
+          "episode_hi": 29700,
+          "n": 100,
+          "return_mean": 132.4786808542418,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 29701,
+          "episode_hi": 29800,
+          "n": 100,
+          "return_mean": 131.38884969976272,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 29801,
+          "episode_hi": 29900,
+          "n": 100,
+          "return_mean": 132.06698972598727,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 29901,
+          "episode_hi": 30000,
+          "n": 100,
+          "return_mean": 125.71441155782628,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 30001,
+          "episode_hi": 30100,
+          "n": 100,
+          "return_mean": 116.88895921729728,
+          "timeout_rate": 0.11,
+          "release_rate": 0.89
+        },
+        {
+          "episode_lo": 30101,
+          "episode_hi": 30200,
+          "n": 100,
+          "return_mean": 129.39624318775878,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 30201,
+          "episode_hi": 30300,
+          "n": 100,
+          "return_mean": 135.2489306986444,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 30301,
+          "episode_hi": 30400,
+          "n": 100,
+          "return_mean": 129.41661486011276,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 30401,
+          "episode_hi": 30500,
+          "n": 100,
+          "return_mean": 128.18237810810606,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 30501,
+          "episode_hi": 30600,
+          "n": 100,
+          "return_mean": 128.36967435839028,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 30601,
+          "episode_hi": 30700,
+          "n": 100,
+          "return_mean": 120.49282329996362,
+          "timeout_rate": 0.08,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 30701,
+          "episode_hi": 30800,
+          "n": 100,
+          "return_mean": 130.4542488644224,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 30801,
+          "episode_hi": 30900,
+          "n": 100,
+          "return_mean": 128.98620832238296,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 30901,
+          "episode_hi": 31000,
+          "n": 100,
+          "return_mean": 135.20671939756159,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 31001,
+          "episode_hi": 31100,
+          "n": 100,
+          "return_mean": 127.42594925201267,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 31101,
+          "episode_hi": 31200,
+          "n": 100,
+          "return_mean": 127.78136389979264,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 31201,
+          "episode_hi": 31300,
+          "n": 100,
+          "return_mean": 119.66575839890791,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 31301,
+          "episode_hi": 31400,
+          "n": 100,
+          "return_mean": 124.14127196648442,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 31401,
+          "episode_hi": 31500,
+          "n": 100,
+          "return_mean": 121.87280912948023,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 31501,
+          "episode_hi": 31600,
+          "n": 100,
+          "return_mean": 113.98778415460657,
+          "timeout_rate": 0.11,
+          "release_rate": 0.9
+        },
+        {
+          "episode_lo": 31601,
+          "episode_hi": 31700,
+          "n": 100,
+          "return_mean": 47.32212582300579,
+          "timeout_rate": 0.52,
+          "release_rate": 0.49
+        },
+        {
+          "episode_lo": 31701,
+          "episode_hi": 31800,
+          "n": 100,
+          "return_mean": 32.319131102383174,
+          "timeout_rate": 0.64,
+          "release_rate": 0.37
+        },
+        {
+          "episode_lo": 31801,
+          "episode_hi": 31900,
+          "n": 100,
+          "return_mean": 117.96771644768543,
+          "timeout_rate": 0.13,
+          "release_rate": 0.87
+        },
+        {
+          "episode_lo": 31901,
+          "episode_hi": 32000,
+          "n": 100,
+          "return_mean": 139.7761768495399,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32001,
+          "episode_hi": 32100,
+          "n": 100,
+          "return_mean": 139.6405224383867,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32101,
+          "episode_hi": 32200,
+          "n": 100,
+          "return_mean": 138.59325209593857,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32201,
+          "episode_hi": 32300,
+          "n": 100,
+          "return_mean": 138.76733462073892,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32301,
+          "episode_hi": 32400,
+          "n": 100,
+          "return_mean": 139.971790785861,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32401,
+          "episode_hi": 32500,
+          "n": 100,
+          "return_mean": 138.6590741465902,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32501,
+          "episode_hi": 32600,
+          "n": 100,
+          "return_mean": 140.2188218361117,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32601,
+          "episode_hi": 32700,
+          "n": 100,
+          "return_mean": 140.0078304184214,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32701,
+          "episode_hi": 32800,
+          "n": 100,
+          "return_mean": 138.7672997290092,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 32801,
+          "episode_hi": 32900,
+          "n": 100,
+          "return_mean": 112.5911322881864,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 32901,
+          "episode_hi": 33000,
+          "n": 100,
+          "return_mean": -10.50057609444973,
+          "timeout_rate": 0.87,
+          "release_rate": 0.13
+        },
+        {
+          "episode_lo": 33001,
+          "episode_hi": 33100,
+          "n": 100,
+          "return_mean": 56.993777620291574,
+          "timeout_rate": 0.42,
+          "release_rate": 0.58
+        },
+        {
+          "episode_lo": 33101,
+          "episode_hi": 33200,
+          "n": 100,
+          "return_mean": 131.62227779242224,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 33201,
+          "episode_hi": 33300,
+          "n": 100,
+          "return_mean": 138.78104229391937,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33301,
+          "episode_hi": 33400,
+          "n": 100,
+          "return_mean": 141.13097895015844,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33401,
+          "episode_hi": 33500,
+          "n": 100,
+          "return_mean": 140.2730680756531,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33501,
+          "episode_hi": 33600,
+          "n": 100,
+          "return_mean": 140.60191944011544,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33601,
+          "episode_hi": 33700,
+          "n": 100,
+          "return_mean": 140.42907428882566,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33701,
+          "episode_hi": 33800,
+          "n": 100,
+          "return_mean": 141.434303640883,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33801,
+          "episode_hi": 33900,
+          "n": 100,
+          "return_mean": 140.23175541976346,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 33901,
+          "episode_hi": 34000,
+          "n": 100,
+          "return_mean": 140.94201893320522,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 34001,
+          "episode_hi": 34100,
+          "n": 100,
+          "return_mean": 140.60841068916847,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 34101,
+          "episode_hi": 34200,
+          "n": 100,
+          "return_mean": 137.69622916733613,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 34201,
+          "episode_hi": 34300,
+          "n": 100,
+          "return_mean": 134.22743337084452,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 34301,
+          "episode_hi": 34400,
+          "n": 100,
+          "return_mean": 113.36454907375715,
+          "timeout_rate": 0.16,
+          "release_rate": 0.84
+        },
+        {
+          "episode_lo": 34401,
+          "episode_hi": 34500,
+          "n": 100,
+          "return_mean": 122.33642755638103,
+          "timeout_rate": 0.11,
+          "release_rate": 0.89
+        },
+        {
+          "episode_lo": 34501,
+          "episode_hi": 34600,
+          "n": 100,
+          "return_mean": 128.58994712802487,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 34601,
+          "episode_hi": 34700,
+          "n": 100,
+          "return_mean": 138.84056016660102,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 34701,
+          "episode_hi": 34800,
+          "n": 100,
+          "return_mean": 138.0137950108849,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 34801,
+          "episode_hi": 34900,
+          "n": 100,
+          "return_mean": 140.17059502701147,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 34901,
+          "episode_hi": 35000,
+          "n": 100,
+          "return_mean": 141.46513580843344,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35001,
+          "episode_hi": 35100,
+          "n": 100,
+          "return_mean": 141.15262079478885,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35101,
+          "episode_hi": 35200,
+          "n": 100,
+          "return_mean": 141.6797580551006,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35201,
+          "episode_hi": 35300,
+          "n": 100,
+          "return_mean": 141.89222629414874,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35301,
+          "episode_hi": 35400,
+          "n": 100,
+          "return_mean": 140.28665543574715,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35401,
+          "episode_hi": 35500,
+          "n": 100,
+          "return_mean": 141.96600852772426,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35501,
+          "episode_hi": 35600,
+          "n": 100,
+          "return_mean": 139.42319517376015,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 35601,
+          "episode_hi": 35700,
+          "n": 100,
+          "return_mean": 133.87078285333368,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 35701,
+          "episode_hi": 35800,
+          "n": 100,
+          "return_mean": 127.07044081280822,
+          "timeout_rate": 0.08,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 35801,
+          "episode_hi": 35900,
+          "n": 100,
+          "return_mean": 138.64764662898284,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 35901,
+          "episode_hi": 36000,
+          "n": 100,
+          "return_mean": 138.73458214450105,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 36001,
+          "episode_hi": 36100,
+          "n": 100,
+          "return_mean": 137.84894639747986,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 36101,
+          "episode_hi": 36200,
+          "n": 100,
+          "return_mean": 137.01895103032092,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 36201,
+          "episode_hi": 36300,
+          "n": 100,
+          "return_mean": 139.55081110723097,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 36301,
+          "episode_hi": 36400,
+          "n": 100,
+          "return_mean": 140.11184081116525,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 36401,
+          "episode_hi": 36500,
+          "n": 100,
+          "return_mean": 138.2330451596382,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 36501,
+          "episode_hi": 36600,
+          "n": 100,
+          "return_mean": 136.2607202884355,
+          "timeout_rate": 0.03,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 36601,
+          "episode_hi": 36700,
+          "n": 100,
+          "return_mean": 136.85076524419253,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 36701,
+          "episode_hi": 36800,
+          "n": 100,
+          "return_mean": 133.8329626883936,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 36801,
+          "episode_hi": 36900,
+          "n": 100,
+          "return_mean": 122.99136767234536,
+          "timeout_rate": 0.09,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 36901,
+          "episode_hi": 37000,
+          "n": 100,
+          "return_mean": 131.49958948623387,
+          "timeout_rate": 0.05,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 37001,
+          "episode_hi": 37100,
+          "n": 100,
+          "return_mean": 122.18039580757484,
+          "timeout_rate": 0.1,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 37101,
+          "episode_hi": 37200,
+          "n": 100,
+          "return_mean": 127.27798827216488,
+          "timeout_rate": 0.06,
+          "release_rate": 0.94
+        },
+        {
+          "episode_lo": 37201,
+          "episode_hi": 37300,
+          "n": 100,
+          "return_mean": 127.99680659916767,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 37301,
+          "episode_hi": 37400,
+          "n": 100,
+          "return_mean": 116.62040785683526,
+          "timeout_rate": 0.1,
+          "release_rate": 0.9
+        },
+        {
+          "episode_lo": 37401,
+          "episode_hi": 37500,
+          "n": 100,
+          "return_mean": 139.97103254840076,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 37501,
+          "episode_hi": 37600,
+          "n": 100,
+          "return_mean": 138.33604411159106,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 37601,
+          "episode_hi": 37700,
+          "n": 100,
+          "return_mean": 136.21897405582968,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 37701,
+          "episode_hi": 37800,
+          "n": 100,
+          "return_mean": 128.43151371000215,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 37801,
+          "episode_hi": 37900,
+          "n": 100,
+          "return_mean": 133.11792648221493,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 37901,
+          "episode_hi": 38000,
+          "n": 100,
+          "return_mean": 124.39103607361629,
+          "timeout_rate": 0.08,
+          "release_rate": 0.92
+        },
+        {
+          "episode_lo": 38001,
+          "episode_hi": 38100,
+          "n": 100,
+          "return_mean": 97.41228791662908,
+          "timeout_rate": 0.23,
+          "release_rate": 0.77
+        },
+        {
+          "episode_lo": 38101,
+          "episode_hi": 38200,
+          "n": 100,
+          "return_mean": 118.80707059896653,
+          "timeout_rate": 0.1,
+          "release_rate": 0.9
+        },
+        {
+          "episode_lo": 38201,
+          "episode_hi": 38300,
+          "n": 100,
+          "return_mean": 133.60591877093435,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 38301,
+          "episode_hi": 38400,
+          "n": 100,
+          "return_mean": 131.67614145858153,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 38401,
+          "episode_hi": 38500,
+          "n": 100,
+          "return_mean": 97.34005837973251,
+          "timeout_rate": 0.09,
+          "release_rate": 0.91
+        },
+        {
+          "episode_lo": 38501,
+          "episode_hi": 38600,
+          "n": 100,
+          "return_mean": 1.838726440935454,
+          "timeout_rate": 0.49,
+          "release_rate": 0.51
+        },
+        {
+          "episode_lo": 38601,
+          "episode_hi": 38700,
+          "n": 100,
+          "return_mean": 52.489819504484714,
+          "timeout_rate": 0.5,
+          "release_rate": 0.5
+        },
+        {
+          "episode_lo": 38701,
+          "episode_hi": 38800,
+          "n": 100,
+          "return_mean": 134.22894773588615,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 38801,
+          "episode_hi": 38900,
+          "n": 100,
+          "return_mean": 137.31346356679143,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 38901,
+          "episode_hi": 39000,
+          "n": 100,
+          "return_mean": 136.28817124751964,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 39001,
+          "episode_hi": 39100,
+          "n": 100,
+          "return_mean": 132.2271519038746,
+          "timeout_rate": 0.02,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 39101,
+          "episode_hi": 39200,
+          "n": 100,
+          "return_mean": 127.48877973225365,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 39201,
+          "episode_hi": 39300,
+          "n": 100,
+          "return_mean": 132.85552335648728,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 39301,
+          "episode_hi": 39400,
+          "n": 100,
+          "return_mean": 135.111959270291,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 39401,
+          "episode_hi": 39500,
+          "n": 100,
+          "return_mean": 138.97962407520743,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 39501,
+          "episode_hi": 39600,
+          "n": 100,
+          "return_mean": 135.66914184132855,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 39601,
+          "episode_hi": 39700,
+          "n": 100,
+          "return_mean": 138.29671622885337,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 39701,
+          "episode_hi": 39800,
+          "n": 100,
+          "return_mean": 136.9874353558101,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 39801,
+          "episode_hi": 39900,
+          "n": 100,
+          "return_mean": 138.00855550031167,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 39901,
+          "episode_hi": 40000,
+          "n": 100,
+          "return_mean": 135.06866981899466,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 40001,
+          "episode_hi": 40100,
+          "n": 100,
+          "return_mean": 135.10606953713707,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 40101,
+          "episode_hi": 40200,
+          "n": 100,
+          "return_mean": 128.12308845361937,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 40201,
+          "episode_hi": 40300,
+          "n": 100,
+          "return_mean": 121.0272473579278,
+          "timeout_rate": 0.12,
+          "release_rate": 0.88
+        },
+        {
+          "episode_lo": 40301,
+          "episode_hi": 40400,
+          "n": 100,
+          "return_mean": 129.14118878351633,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 40401,
+          "episode_hi": 40500,
+          "n": 100,
+          "return_mean": 99.29225698759214,
+          "timeout_rate": 0.24,
+          "release_rate": 0.76
+        },
+        {
+          "episode_lo": 40501,
+          "episode_hi": 40600,
+          "n": 100,
+          "return_mean": 21.746908892493984,
+          "timeout_rate": 0.72,
+          "release_rate": 0.28
+        },
+        {
+          "episode_lo": 40601,
+          "episode_hi": 40700,
+          "n": 100,
+          "return_mean": 58.25573428160621,
+          "timeout_rate": 0.49,
+          "release_rate": 0.52
+        },
+        {
+          "episode_lo": 40701,
+          "episode_hi": 40800,
+          "n": 100,
+          "return_mean": 32.62518838713677,
+          "timeout_rate": 0.57,
+          "release_rate": 0.44
+        },
+        {
+          "episode_lo": 40801,
+          "episode_hi": 40900,
+          "n": 100,
+          "return_mean": 139.25320304857487,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 40901,
+          "episode_hi": 41000,
+          "n": 100,
+          "return_mean": 141.55262052967245,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41001,
+          "episode_hi": 41100,
+          "n": 100,
+          "return_mean": 139.53397499576803,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41101,
+          "episode_hi": 41200,
+          "n": 100,
+          "return_mean": 142.06598658170378,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41201,
+          "episode_hi": 41300,
+          "n": 100,
+          "return_mean": 142.20783867036818,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41301,
+          "episode_hi": 41400,
+          "n": 100,
+          "return_mean": 139.3686162331194,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 41401,
+          "episode_hi": 41500,
+          "n": 100,
+          "return_mean": 140.9804910686312,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41501,
+          "episode_hi": 41600,
+          "n": 100,
+          "return_mean": 141.6983870607668,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41601,
+          "episode_hi": 41700,
+          "n": 100,
+          "return_mean": 142.5114897860813,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41701,
+          "episode_hi": 41800,
+          "n": 100,
+          "return_mean": 140.67623663886914,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 41801,
+          "episode_hi": 41900,
+          "n": 100,
+          "return_mean": 141.19102223809182,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 41901,
+          "episode_hi": 42000,
+          "n": 100,
+          "return_mean": 141.0934457347693,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 42001,
+          "episode_hi": 42100,
+          "n": 100,
+          "return_mean": 141.73760363431091,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 42101,
+          "episode_hi": 42200,
+          "n": 100,
+          "return_mean": 142.26208473488612,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 42201,
+          "episode_hi": 42300,
+          "n": 100,
+          "return_mean": 138.22737243486202,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 42301,
+          "episode_hi": 42400,
+          "n": 100,
+          "return_mean": 134.7711444946527,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 42401,
+          "episode_hi": 42500,
+          "n": 100,
+          "return_mean": 135.83871439969317,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 42501,
+          "episode_hi": 42600,
+          "n": 100,
+          "return_mean": 132.7115532394624,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 42601,
+          "episode_hi": 42700,
+          "n": 100,
+          "return_mean": 139.3281194954492,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 42701,
+          "episode_hi": 42800,
+          "n": 100,
+          "return_mean": 141.446404251292,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 42801,
+          "episode_hi": 42900,
+          "n": 100,
+          "return_mean": 136.87947134755825,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 42901,
+          "episode_hi": 43000,
+          "n": 100,
+          "return_mean": 132.99322059862143,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 43001,
+          "episode_hi": 43100,
+          "n": 100,
+          "return_mean": 132.9296310185887,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 43101,
+          "episode_hi": 43200,
+          "n": 100,
+          "return_mean": 26.0584778056493,
+          "timeout_rate": 0.68,
+          "release_rate": 0.32
+        },
+        {
+          "episode_lo": 43201,
+          "episode_hi": 43300,
+          "n": 100,
+          "return_mean": -20.5788075397091,
+          "timeout_rate": 0.98,
+          "release_rate": 0.02
+        },
+        {
+          "episode_lo": 43301,
+          "episode_hi": 43400,
+          "n": 100,
+          "return_mean": 11.811360164218067,
+          "timeout_rate": 0.79,
+          "release_rate": 0.21
+        },
+        {
+          "episode_lo": 43401,
+          "episode_hi": 43500,
+          "n": 100,
+          "return_mean": 115.58329111817528,
+          "timeout_rate": 0.13,
+          "release_rate": 0.87
+        },
+        {
+          "episode_lo": 43501,
+          "episode_hi": 43600,
+          "n": 100,
+          "return_mean": 133.83480853959182,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 43601,
+          "episode_hi": 43700,
+          "n": 100,
+          "return_mean": 135.073494829697,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 43701,
+          "episode_hi": 43800,
+          "n": 100,
+          "return_mean": 136.23470906911743,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 43801,
+          "episode_hi": 43900,
+          "n": 100,
+          "return_mean": 139.25954883035575,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 43901,
+          "episode_hi": 44000,
+          "n": 100,
+          "return_mean": 140.1606212013725,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44001,
+          "episode_hi": 44100,
+          "n": 100,
+          "return_mean": 140.0401813243626,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44101,
+          "episode_hi": 44200,
+          "n": 100,
+          "return_mean": 140.86980081727438,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44201,
+          "episode_hi": 44300,
+          "n": 100,
+          "return_mean": 140.11176783928585,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44301,
+          "episode_hi": 44400,
+          "n": 100,
+          "return_mean": 140.89984790109085,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44401,
+          "episode_hi": 44500,
+          "n": 100,
+          "return_mean": 142.856175961993,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44501,
+          "episode_hi": 44600,
+          "n": 100,
+          "return_mean": 141.720417408509,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44601,
+          "episode_hi": 44700,
+          "n": 100,
+          "return_mean": 139.18595420302438,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 44701,
+          "episode_hi": 44800,
+          "n": 100,
+          "return_mean": 142.20798001752917,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44801,
+          "episode_hi": 44900,
+          "n": 100,
+          "return_mean": 141.05943246847687,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 44901,
+          "episode_hi": 45000,
+          "n": 100,
+          "return_mean": 141.6867233667325,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45001,
+          "episode_hi": 45100,
+          "n": 100,
+          "return_mean": 140.3226773285647,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 45101,
+          "episode_hi": 45200,
+          "n": 100,
+          "return_mean": 142.23549974083505,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45201,
+          "episode_hi": 45300,
+          "n": 100,
+          "return_mean": 142.44883920692723,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45301,
+          "episode_hi": 45400,
+          "n": 100,
+          "return_mean": 142.58720114452908,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45401,
+          "episode_hi": 45500,
+          "n": 100,
+          "return_mean": 141.91812327668333,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45501,
+          "episode_hi": 45600,
+          "n": 100,
+          "return_mean": 140.68540505589252,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 45601,
+          "episode_hi": 45700,
+          "n": 100,
+          "return_mean": 143.10488927840265,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45701,
+          "episode_hi": 45800,
+          "n": 100,
+          "return_mean": 141.6948654138359,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 45801,
+          "episode_hi": 45900,
+          "n": 100,
+          "return_mean": 138.85938364690307,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 45901,
+          "episode_hi": 46000,
+          "n": 100,
+          "return_mean": 140.36388575830463,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 46001,
+          "episode_hi": 46100,
+          "n": 100,
+          "return_mean": 133.66909116018493,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 46101,
+          "episode_hi": 46200,
+          "n": 100,
+          "return_mean": 112.59304074938797,
+          "timeout_rate": 0.17,
+          "release_rate": 0.84
+        },
+        {
+          "episode_lo": 46201,
+          "episode_hi": 46300,
+          "n": 100,
+          "return_mean": 95.58566450914995,
+          "timeout_rate": 0.26,
+          "release_rate": 0.74
+        },
+        {
+          "episode_lo": 46301,
+          "episode_hi": 46400,
+          "n": 100,
+          "return_mean": 116.50861321226064,
+          "timeout_rate": 0.13,
+          "release_rate": 0.88
+        },
+        {
+          "episode_lo": 46401,
+          "episode_hi": 46500,
+          "n": 100,
+          "return_mean": 134.9596981224002,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 46501,
+          "episode_hi": 46600,
+          "n": 100,
+          "return_mean": 140.679020029077,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 46601,
+          "episode_hi": 46700,
+          "n": 100,
+          "return_mean": 141.2250619852729,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 46701,
+          "episode_hi": 46800,
+          "n": 100,
+          "return_mean": 143.1869825646466,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 46801,
+          "episode_hi": 46900,
+          "n": 100,
+          "return_mean": 141.26645205727672,
+          "timeout_rate": 0.01,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 46901,
+          "episode_hi": 47000,
+          "n": 100,
+          "return_mean": 142.25831849198565,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47001,
+          "episode_hi": 47100,
+          "n": 100,
+          "return_mean": 142.74513924697072,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47101,
+          "episode_hi": 47200,
+          "n": 100,
+          "return_mean": 142.699891664604,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47201,
+          "episode_hi": 47300,
+          "n": 100,
+          "return_mean": 142.28116412684435,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47301,
+          "episode_hi": 47400,
+          "n": 100,
+          "return_mean": 142.37082487067386,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47401,
+          "episode_hi": 47500,
+          "n": 100,
+          "return_mean": 143.42110728616748,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47501,
+          "episode_hi": 47600,
+          "n": 100,
+          "return_mean": 142.60107929367874,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47601,
+          "episode_hi": 47700,
+          "n": 100,
+          "return_mean": 143.52271114781234,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47701,
+          "episode_hi": 47800,
+          "n": 100,
+          "return_mean": 142.8700931248689,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47801,
+          "episode_hi": 47900,
+          "n": 100,
+          "return_mean": 142.37993767444803,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 47901,
+          "episode_hi": 48000,
+          "n": 100,
+          "return_mean": 142.8521900893431,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48001,
+          "episode_hi": 48100,
+          "n": 100,
+          "return_mean": 142.9562303898389,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48101,
+          "episode_hi": 48200,
+          "n": 100,
+          "return_mean": 142.1676988458913,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48201,
+          "episode_hi": 48300,
+          "n": 100,
+          "return_mean": 143.17817934511953,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48301,
+          "episode_hi": 48400,
+          "n": 100,
+          "return_mean": 142.34269737185494,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48401,
+          "episode_hi": 48500,
+          "n": 100,
+          "return_mean": 143.52974718800488,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48501,
+          "episode_hi": 48600,
+          "n": 100,
+          "return_mean": 142.89999784136103,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48601,
+          "episode_hi": 48700,
+          "n": 100,
+          "return_mean": 143.08811571997853,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 48701,
+          "episode_hi": 48800,
+          "n": 100,
+          "return_mean": 41.33185478740107,
+          "timeout_rate": 0.57,
+          "release_rate": 0.43
+        },
+        {
+          "episode_lo": 48801,
+          "episode_hi": 48900,
+          "n": 100,
+          "return_mean": -18.778976016347205,
+          "timeout_rate": 0.92,
+          "release_rate": 0.08
+        },
+        {
+          "episode_lo": 48901,
+          "episode_hi": 49000,
+          "n": 100,
+          "return_mean": 107.05947514733184,
+          "timeout_rate": 0.21,
+          "release_rate": 0.79
+        },
+        {
+          "episode_lo": 49001,
+          "episode_hi": 49100,
+          "n": 100,
+          "return_mean": 142.54183297033504,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49101,
+          "episode_hi": 49200,
+          "n": 100,
+          "return_mean": 142.36457693969987,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49201,
+          "episode_hi": 49300,
+          "n": 100,
+          "return_mean": 142.94213165072927,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49301,
+          "episode_hi": 49400,
+          "n": 100,
+          "return_mean": 142.16308227223178,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49401,
+          "episode_hi": 49500,
+          "n": 100,
+          "return_mean": 142.8638179529057,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49501,
+          "episode_hi": 49600,
+          "n": 100,
+          "return_mean": 142.37311593363304,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49601,
+          "episode_hi": 49700,
+          "n": 100,
+          "return_mean": 142.66488708192475,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49701,
+          "episode_hi": 49800,
+          "n": 100,
+          "return_mean": 141.93323715239077,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49801,
+          "episode_hi": 49900,
+          "n": 100,
+          "return_mean": 143.29465625441512,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 49901,
+          "episode_hi": 50000,
+          "n": 100,
+          "return_mean": 142.80785694500184,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 50001,
+          "episode_hi": 50100,
+          "n": 100,
+          "return_mean": 140.76571141909582,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 50101,
+          "episode_hi": 50200,
+          "n": 100,
+          "return_mean": 133.54208791780707,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 50201,
+          "episode_hi": 50300,
+          "n": 100,
+          "return_mean": 74.88184395147482,
+          "timeout_rate": 0.38,
+          "release_rate": 0.62
+        },
+        {
+          "episode_lo": 50301,
+          "episode_hi": 50400,
+          "n": 100,
+          "return_mean": -8.186688341560455,
+          "timeout_rate": 0.91,
+          "release_rate": 0.09
+        },
+        {
+          "episode_lo": 50401,
+          "episode_hi": 50500,
+          "n": 100,
+          "return_mean": 18.36956309006562,
+          "timeout_rate": 0.75,
+          "release_rate": 0.25
+        },
+        {
+          "episode_lo": 50501,
+          "episode_hi": 50600,
+          "n": 100,
+          "return_mean": 136.69371387056634,
+          "timeout_rate": 0.02,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 50601,
+          "episode_hi": 50700,
+          "n": 100,
+          "return_mean": 141.52381903410148,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 50701,
+          "episode_hi": 50800,
+          "n": 100,
+          "return_mean": 141.723908100763,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 50801,
+          "episode_hi": 50900,
+          "n": 100,
+          "return_mean": 141.69455530597656,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 50901,
+          "episode_hi": 51000,
+          "n": 100,
+          "return_mean": 142.73967121633243,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51001,
+          "episode_hi": 51100,
+          "n": 100,
+          "return_mean": 143.3981014319119,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51101,
+          "episode_hi": 51200,
+          "n": 100,
+          "return_mean": 143.54660672666634,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51201,
+          "episode_hi": 51300,
+          "n": 100,
+          "return_mean": 143.1046914058608,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51301,
+          "episode_hi": 51400,
+          "n": 100,
+          "return_mean": 143.99169718982105,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51401,
+          "episode_hi": 51500,
+          "n": 100,
+          "return_mean": 143.27833285249844,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51501,
+          "episode_hi": 51600,
+          "n": 100,
+          "return_mean": 143.0572118363686,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51601,
+          "episode_hi": 51700,
+          "n": 100,
+          "return_mean": 143.7605464851206,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51701,
+          "episode_hi": 51800,
+          "n": 100,
+          "return_mean": 142.92060324145334,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51801,
+          "episode_hi": 51900,
+          "n": 100,
+          "return_mean": 142.7201759224142,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 51901,
+          "episode_hi": 52000,
+          "n": 100,
+          "return_mean": 142.75371155467548,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52001,
+          "episode_hi": 52100,
+          "n": 100,
+          "return_mean": 143.5879920521625,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52101,
+          "episode_hi": 52200,
+          "n": 100,
+          "return_mean": 142.48680235595998,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52201,
+          "episode_hi": 52300,
+          "n": 100,
+          "return_mean": 142.08238416394977,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52301,
+          "episode_hi": 52400,
+          "n": 100,
+          "return_mean": 141.7889640054449,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52401,
+          "episode_hi": 52500,
+          "n": 100,
+          "return_mean": 143.8886976832217,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52501,
+          "episode_hi": 52600,
+          "n": 100,
+          "return_mean": 143.53751642307088,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52601,
+          "episode_hi": 52700,
+          "n": 100,
+          "return_mean": 143.0571320934489,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52701,
+          "episode_hi": 52800,
+          "n": 100,
+          "return_mean": 144.39549678316556,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 52801,
+          "episode_hi": 52900,
+          "n": 100,
+          "return_mean": 138.4512476671078,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 52901,
+          "episode_hi": 53000,
+          "n": 100,
+          "return_mean": 143.10769262481634,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53001,
+          "episode_hi": 53100,
+          "n": 100,
+          "return_mean": 143.4841066471476,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53101,
+          "episode_hi": 53200,
+          "n": 100,
+          "return_mean": 142.13601370007544,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53201,
+          "episode_hi": 53300,
+          "n": 100,
+          "return_mean": 143.37032860395263,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53301,
+          "episode_hi": 53400,
+          "n": 100,
+          "return_mean": 143.50351771438739,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53401,
+          "episode_hi": 53500,
+          "n": 100,
+          "return_mean": 143.00991630432466,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53501,
+          "episode_hi": 53600,
+          "n": 100,
+          "return_mean": 140.46550368325342,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 53601,
+          "episode_hi": 53700,
+          "n": 100,
+          "return_mean": 130.16007478889142,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 53701,
+          "episode_hi": 53800,
+          "n": 100,
+          "return_mean": 19.33551503700265,
+          "timeout_rate": 0.73,
+          "release_rate": 0.27
+        },
+        {
+          "episode_lo": 53801,
+          "episode_hi": 53900,
+          "n": 100,
+          "return_mean": 78.80961025644311,
+          "timeout_rate": 0.38,
+          "release_rate": 0.63
+        },
+        {
+          "episode_lo": 53901,
+          "episode_hi": 54000,
+          "n": 100,
+          "return_mean": 142.96161376360192,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54001,
+          "episode_hi": 54100,
+          "n": 100,
+          "return_mean": 143.43919278561134,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54101,
+          "episode_hi": 54200,
+          "n": 100,
+          "return_mean": 143.0958107223677,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54201,
+          "episode_hi": 54300,
+          "n": 100,
+          "return_mean": 143.31869695550247,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54301,
+          "episode_hi": 54400,
+          "n": 100,
+          "return_mean": 143.19848709459583,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54401,
+          "episode_hi": 54500,
+          "n": 100,
+          "return_mean": 143.82190816087248,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54501,
+          "episode_hi": 54600,
+          "n": 100,
+          "return_mean": 143.77122454677811,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54601,
+          "episode_hi": 54700,
+          "n": 100,
+          "return_mean": 143.92190862394983,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54701,
+          "episode_hi": 54800,
+          "n": 100,
+          "return_mean": 143.6369153274804,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54801,
+          "episode_hi": 54900,
+          "n": 100,
+          "return_mean": 144.0078418173501,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 54901,
+          "episode_hi": 55000,
+          "n": 100,
+          "return_mean": 143.49184269215928,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55001,
+          "episode_hi": 55100,
+          "n": 100,
+          "return_mean": 143.288371551491,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55101,
+          "episode_hi": 55200,
+          "n": 100,
+          "return_mean": 142.54308096544216,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55201,
+          "episode_hi": 55300,
+          "n": 100,
+          "return_mean": 143.49103125345414,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55301,
+          "episode_hi": 55400,
+          "n": 100,
+          "return_mean": 142.29199358186045,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55401,
+          "episode_hi": 55500,
+          "n": 100,
+          "return_mean": 142.7486957944708,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55501,
+          "episode_hi": 55600,
+          "n": 100,
+          "return_mean": 142.68924080424173,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55601,
+          "episode_hi": 55700,
+          "n": 100,
+          "return_mean": 142.71768818670844,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55701,
+          "episode_hi": 55800,
+          "n": 100,
+          "return_mean": 142.6096729446363,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55801,
+          "episode_hi": 55900,
+          "n": 100,
+          "return_mean": 142.86188041084068,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 55901,
+          "episode_hi": 56000,
+          "n": 100,
+          "return_mean": 142.4631420576282,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 56001,
+          "episode_hi": 56100,
+          "n": 100,
+          "return_mean": 141.00246687047613,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 56101,
+          "episode_hi": 56200,
+          "n": 100,
+          "return_mean": 142.05547143565454,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 56201,
+          "episode_hi": 56300,
+          "n": 100,
+          "return_mean": 141.26890588794905,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 56301,
+          "episode_hi": 56400,
+          "n": 100,
+          "return_mean": 140.64503475413866,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 56401,
+          "episode_hi": 56500,
+          "n": 100,
+          "return_mean": 142.61881647811435,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 56501,
+          "episode_hi": 56600,
+          "n": 100,
+          "return_mean": 142.4090351456193,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 56601,
+          "episode_hi": 56700,
+          "n": 100,
+          "return_mean": 140.86921987690587,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 56701,
+          "episode_hi": 56800,
+          "n": 100,
+          "return_mean": 142.0297192518459,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 56801,
+          "episode_hi": 56900,
+          "n": 100,
+          "return_mean": 142.48037731425478,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 56901,
+          "episode_hi": 57000,
+          "n": 100,
+          "return_mean": 142.1459727813217,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 57001,
+          "episode_hi": 57100,
+          "n": 100,
+          "return_mean": 142.01901815982518,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 57101,
+          "episode_hi": 57200,
+          "n": 100,
+          "return_mean": 140.8441018959417,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 57201,
+          "episode_hi": 57300,
+          "n": 100,
+          "return_mean": 143.0120315103845,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 57301,
+          "episode_hi": 57400,
+          "n": 100,
+          "return_mean": 140.57921622608532,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 57401,
+          "episode_hi": 57500,
+          "n": 100,
+          "return_mean": 140.0232081120668,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 57501,
+          "episode_hi": 57600,
+          "n": 100,
+          "return_mean": 141.88052530835944,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 57601,
+          "episode_hi": 57700,
+          "n": 100,
+          "return_mean": 138.4691620865363,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 57701,
+          "episode_hi": 57800,
+          "n": 100,
+          "return_mean": 138.50226991803274,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 57801,
+          "episode_hi": 57900,
+          "n": 100,
+          "return_mean": 135.02913965926302,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 57901,
+          "episode_hi": 58000,
+          "n": 100,
+          "return_mean": 129.06503066470276,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 58001,
+          "episode_hi": 58100,
+          "n": 100,
+          "return_mean": 102.63291737622798,
+          "timeout_rate": 0.22,
+          "release_rate": 0.78
+        },
+        {
+          "episode_lo": 58101,
+          "episode_hi": 58200,
+          "n": 100,
+          "return_mean": 21.03064770042454,
+          "timeout_rate": 0.59,
+          "release_rate": 0.42
+        },
+        {
+          "episode_lo": 58201,
+          "episode_hi": 58300,
+          "n": 100,
+          "return_mean": 98.04087489412834,
+          "timeout_rate": 0.17,
+          "release_rate": 0.83
+        },
+        {
+          "episode_lo": 58301,
+          "episode_hi": 58400,
+          "n": 100,
+          "return_mean": 136.13350713611007,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 58401,
+          "episode_hi": 58500,
+          "n": 100,
+          "return_mean": 137.81028700838047,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 58501,
+          "episode_hi": 58600,
+          "n": 100,
+          "return_mean": 138.88921614056085,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 58601,
+          "episode_hi": 58700,
+          "n": 100,
+          "return_mean": 140.36001673360843,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 58701,
+          "episode_hi": 58800,
+          "n": 100,
+          "return_mean": 138.97202037582133,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 58801,
+          "episode_hi": 58900,
+          "n": 100,
+          "return_mean": 139.38889808146635,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 58901,
+          "episode_hi": 59000,
+          "n": 100,
+          "return_mean": 138.37209498888416,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 59001,
+          "episode_hi": 59100,
+          "n": 100,
+          "return_mean": 106.35124408422324,
+          "timeout_rate": 0.19,
+          "release_rate": 0.81
+        },
+        {
+          "episode_lo": 59101,
+          "episode_hi": 59200,
+          "n": 100,
+          "return_mean": -20.96835731728991,
+          "timeout_rate": 1.0,
+          "release_rate": 0.0
+        },
+        {
+          "episode_lo": 59201,
+          "episode_hi": 59300,
+          "n": 100,
+          "return_mean": -0.35202807894043986,
+          "timeout_rate": 0.81,
+          "release_rate": 0.19
+        },
+        {
+          "episode_lo": 59301,
+          "episode_hi": 59400,
+          "n": 100,
+          "return_mean": 116.91040467488747,
+          "timeout_rate": 0.05,
+          "release_rate": 0.95
+        },
+        {
+          "episode_lo": 59401,
+          "episode_hi": 59500,
+          "n": 100,
+          "return_mean": 130.71844447408776,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 59501,
+          "episode_hi": 59600,
+          "n": 100,
+          "return_mean": 139.59663276921873,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 59601,
+          "episode_hi": 59700,
+          "n": 100,
+          "return_mean": 139.41405353020198,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 59701,
+          "episode_hi": 59800,
+          "n": 100,
+          "return_mean": 141.47549660925523,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 59801,
+          "episode_hi": 59900,
+          "n": 100,
+          "return_mean": 142.11919364178416,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 59901,
+          "episode_hi": 60000,
+          "n": 100,
+          "return_mean": 142.85008194257543,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60001,
+          "episode_hi": 60100,
+          "n": 100,
+          "return_mean": 142.17880713401001,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60101,
+          "episode_hi": 60200,
+          "n": 100,
+          "return_mean": 142.18838289008747,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60201,
+          "episode_hi": 60300,
+          "n": 100,
+          "return_mean": 141.62955898950239,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60301,
+          "episode_hi": 60400,
+          "n": 100,
+          "return_mean": 105.86258181000672,
+          "timeout_rate": 0.22,
+          "release_rate": 0.78
+        },
+        {
+          "episode_lo": 60401,
+          "episode_hi": 60500,
+          "n": 100,
+          "return_mean": 61.56029378996966,
+          "timeout_rate": 0.46,
+          "release_rate": 0.54
+        },
+        {
+          "episode_lo": 60501,
+          "episode_hi": 60600,
+          "n": 100,
+          "return_mean": 143.46693921012547,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60601,
+          "episode_hi": 60700,
+          "n": 100,
+          "return_mean": 142.61390584038284,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60701,
+          "episode_hi": 60800,
+          "n": 100,
+          "return_mean": 142.18986885687048,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60801,
+          "episode_hi": 60900,
+          "n": 100,
+          "return_mean": 142.72476318009222,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 60901,
+          "episode_hi": 61000,
+          "n": 100,
+          "return_mean": 142.69731846075413,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 61001,
+          "episode_hi": 61100,
+          "n": 100,
+          "return_mean": 142.78374418328053,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 61101,
+          "episode_hi": 61200,
+          "n": 100,
+          "return_mean": 143.27303702044273,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 61201,
+          "episode_hi": 61300,
+          "n": 100,
+          "return_mean": 143.81013500637624,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 61301,
+          "episode_hi": 61400,
+          "n": 100,
+          "return_mean": 141.61669123532255,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 61401,
+          "episode_hi": 61500,
+          "n": 100,
+          "return_mean": 138.2487202239548,
+          "timeout_rate": 0.03,
+          "release_rate": 0.97
+        },
+        {
+          "episode_lo": 61501,
+          "episode_hi": 61600,
+          "n": 100,
+          "return_mean": 120.72754230846458,
+          "timeout_rate": 0.13,
+          "release_rate": 0.87
+        },
+        {
+          "episode_lo": 61601,
+          "episode_hi": 61700,
+          "n": 100,
+          "return_mean": 12.048429836499816,
+          "timeout_rate": 0.79,
+          "release_rate": 0.21
+        },
+        {
+          "episode_lo": 61701,
+          "episode_hi": 61800,
+          "n": 100,
+          "return_mean": 66.02677669756424,
+          "timeout_rate": 0.46,
+          "release_rate": 0.54
+        },
+        {
+          "episode_lo": 61801,
+          "episode_hi": 61900,
+          "n": 100,
+          "return_mean": 137.7188245296441,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 61901,
+          "episode_hi": 62000,
+          "n": 100,
+          "return_mean": 142.30244650458633,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62001,
+          "episode_hi": 62100,
+          "n": 100,
+          "return_mean": 142.30308324104817,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62101,
+          "episode_hi": 62200,
+          "n": 100,
+          "return_mean": 142.60250496768495,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62201,
+          "episode_hi": 62300,
+          "n": 100,
+          "return_mean": 142.5520531696462,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62301,
+          "episode_hi": 62400,
+          "n": 100,
+          "return_mean": 142.7351012834967,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62401,
+          "episode_hi": 62500,
+          "n": 100,
+          "return_mean": 141.8837132483853,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62501,
+          "episode_hi": 62600,
+          "n": 100,
+          "return_mean": 143.65277094281905,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62601,
+          "episode_hi": 62700,
+          "n": 100,
+          "return_mean": 141.9606751399762,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62701,
+          "episode_hi": 62800,
+          "n": 100,
+          "return_mean": 141.35939463836775,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62801,
+          "episode_hi": 62900,
+          "n": 100,
+          "return_mean": 143.53164849422984,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 62901,
+          "episode_hi": 63000,
+          "n": 100,
+          "return_mean": 142.96200654893948,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63001,
+          "episode_hi": 63100,
+          "n": 100,
+          "return_mean": 142.7201146243421,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63101,
+          "episode_hi": 63200,
+          "n": 100,
+          "return_mean": 142.06190273357544,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63201,
+          "episode_hi": 63300,
+          "n": 100,
+          "return_mean": 143.36031310366343,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63301,
+          "episode_hi": 63400,
+          "n": 100,
+          "return_mean": 143.19270645415182,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63401,
+          "episode_hi": 63500,
+          "n": 100,
+          "return_mean": 142.78497269218363,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63501,
+          "episode_hi": 63600,
+          "n": 100,
+          "return_mean": 143.40640673575786,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63601,
+          "episode_hi": 63700,
+          "n": 100,
+          "return_mean": 143.15753963507674,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63701,
+          "episode_hi": 63800,
+          "n": 100,
+          "return_mean": 143.8231048139469,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63801,
+          "episode_hi": 63900,
+          "n": 100,
+          "return_mean": 143.09317276490188,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 63901,
+          "episode_hi": 64000,
+          "n": 100,
+          "return_mean": 142.8238043507214,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 64001,
+          "episode_hi": 64100,
+          "n": 100,
+          "return_mean": 143.69544241084637,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 64101,
+          "episode_hi": 64200,
+          "n": 100,
+          "return_mean": 142.59394005637,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 64201,
+          "episode_hi": 64300,
+          "n": 100,
+          "return_mean": 143.19876959645842,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 64301,
+          "episode_hi": 64400,
+          "n": 100,
+          "return_mean": 142.4486924550198,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 64401,
+          "episode_hi": 64500,
+          "n": 100,
+          "return_mean": 139.36448195191215,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 64501,
+          "episode_hi": 64600,
+          "n": 100,
+          "return_mean": 30.809406747688513,
+          "timeout_rate": 0.68,
+          "release_rate": 0.32
+        },
+        {
+          "episode_lo": 64601,
+          "episode_hi": 64700,
+          "n": 100,
+          "return_mean": -21.220577933482254,
+          "timeout_rate": 1.0,
+          "release_rate": 0.0
+        },
+        {
+          "episode_lo": 64701,
+          "episode_hi": 64800,
+          "n": 100,
+          "return_mean": 2.003344777563234,
+          "timeout_rate": 0.85,
+          "release_rate": 0.17
+        },
+        {
+          "episode_lo": 64801,
+          "episode_hi": 64900,
+          "n": 100,
+          "return_mean": 135.78118809952304,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 64901,
+          "episode_hi": 65000,
+          "n": 100,
+          "return_mean": 139.06962110915606,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 65001,
+          "episode_hi": 65100,
+          "n": 100,
+          "return_mean": 141.5241386473754,
+          "timeout_rate": 0.01,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 65101,
+          "episode_hi": 65200,
+          "n": 100,
+          "return_mean": 140.28146098096238,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 65201,
+          "episode_hi": 65300,
+          "n": 100,
+          "return_mean": 139.90829105344804,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 65301,
+          "episode_hi": 65400,
+          "n": 100,
+          "return_mean": 140.1930835105462,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 65401,
+          "episode_hi": 65500,
+          "n": 100,
+          "return_mean": 141.48203071270135,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 65501,
+          "episode_hi": 65600,
+          "n": 100,
+          "return_mean": 140.65283726525814,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 65601,
+          "episode_hi": 65700,
+          "n": 100,
+          "return_mean": 138.98848777354578,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 65701,
+          "episode_hi": 65800,
+          "n": 100,
+          "return_mean": 141.44239621985437,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 65801,
+          "episode_hi": 65900,
+          "n": 100,
+          "return_mean": 138.32560346613323,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 65901,
+          "episode_hi": 66000,
+          "n": 100,
+          "return_mean": 136.42197741138025,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 66001,
+          "episode_hi": 66100,
+          "n": 100,
+          "return_mean": 100.0469347345205,
+          "timeout_rate": 0.16,
+          "release_rate": 0.85
+        },
+        {
+          "episode_lo": 66101,
+          "episode_hi": 66200,
+          "n": 100,
+          "return_mean": -16.857204384499397,
+          "timeout_rate": 0.88,
+          "release_rate": 0.13
+        },
+        {
+          "episode_lo": 66201,
+          "episode_hi": 66300,
+          "n": 100,
+          "return_mean": 21.383173442225043,
+          "timeout_rate": 0.59,
+          "release_rate": 0.41
+        },
+        {
+          "episode_lo": 66301,
+          "episode_hi": 66400,
+          "n": 100,
+          "return_mean": 127.14356316863152,
+          "timeout_rate": 0.07,
+          "release_rate": 0.93
+        },
+        {
+          "episode_lo": 66401,
+          "episode_hi": 66500,
+          "n": 100,
+          "return_mean": 136.63165978935152,
+          "timeout_rate": 0.02,
+          "release_rate": 0.98
+        },
+        {
+          "episode_lo": 66501,
+          "episode_hi": 66600,
+          "n": 100,
+          "return_mean": 139.86275400296967,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 66601,
+          "episode_hi": 66700,
+          "n": 100,
+          "return_mean": 140.1136839170641,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 66701,
+          "episode_hi": 66800,
+          "n": 100,
+          "return_mean": 134.53569633950215,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 66801,
+          "episode_hi": 66900,
+          "n": 100,
+          "return_mean": 38.43296370917052,
+          "timeout_rate": 0.58,
+          "release_rate": 0.44
+        },
+        {
+          "episode_lo": 66901,
+          "episode_hi": 67000,
+          "n": 100,
+          "return_mean": 56.00853313432295,
+          "timeout_rate": 0.53,
+          "release_rate": 0.48
+        },
+        {
+          "episode_lo": 67001,
+          "episode_hi": 67100,
+          "n": 100,
+          "return_mean": 135.44694435186238,
+          "timeout_rate": 0.04,
+          "release_rate": 0.96
+        },
+        {
+          "episode_lo": 67101,
+          "episode_hi": 67200,
+          "n": 100,
+          "return_mean": 139.7381615062266,
+          "timeout_rate": 0.01,
+          "release_rate": 0.99
+        },
+        {
+          "episode_lo": 67201,
+          "episode_hi": 67300,
+          "n": 100,
+          "return_mean": 141.25020456623872,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67301,
+          "episode_hi": 67400,
+          "n": 100,
+          "return_mean": 142.60060544788922,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67401,
+          "episode_hi": 67500,
+          "n": 100,
+          "return_mean": 142.71186089980387,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67501,
+          "episode_hi": 67600,
+          "n": 100,
+          "return_mean": 143.19358927011498,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67601,
+          "episode_hi": 67700,
+          "n": 100,
+          "return_mean": 142.63129603873256,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67701,
+          "episode_hi": 67800,
+          "n": 100,
+          "return_mean": 142.88901643789373,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67801,
+          "episode_hi": 67900,
+          "n": 100,
+          "return_mean": 143.8808529960018,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 67901,
+          "episode_hi": 68000,
+          "n": 100,
+          "return_mean": 143.50902594409487,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68001,
+          "episode_hi": 68100,
+          "n": 100,
+          "return_mean": 143.67930470283815,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68101,
+          "episode_hi": 68200,
+          "n": 100,
+          "return_mean": 143.76617145399882,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68201,
+          "episode_hi": 68300,
+          "n": 100,
+          "return_mean": 142.33846770035262,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68301,
+          "episode_hi": 68400,
+          "n": 100,
+          "return_mean": 143.60587958677615,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68401,
+          "episode_hi": 68500,
+          "n": 100,
+          "return_mean": 143.0457597114247,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68501,
+          "episode_hi": 68600,
+          "n": 100,
+          "return_mean": 143.772436762764,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68601,
+          "episode_hi": 68700,
+          "n": 100,
+          "return_mean": 143.2667228178268,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68701,
+          "episode_hi": 68800,
+          "n": 100,
+          "return_mean": 143.9014291618458,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68801,
+          "episode_hi": 68900,
+          "n": 100,
+          "return_mean": 143.52599043874082,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 68901,
+          "episode_hi": 69000,
+          "n": 100,
+          "return_mean": 142.84729085968027,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69001,
+          "episode_hi": 69100,
+          "n": 100,
+          "return_mean": 142.27545455999407,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69101,
+          "episode_hi": 69200,
+          "n": 100,
+          "return_mean": 143.6978686823116,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69201,
+          "episode_hi": 69300,
+          "n": 100,
+          "return_mean": 143.3815907680627,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69301,
+          "episode_hi": 69400,
+          "n": 100,
+          "return_mean": 143.87502178947383,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69401,
+          "episode_hi": 69500,
+          "n": 100,
+          "return_mean": 143.78607079639775,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69501,
+          "episode_hi": 69600,
+          "n": 100,
+          "return_mean": 143.0700278428811,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69601,
+          "episode_hi": 69700,
+          "n": 100,
+          "return_mean": 143.33320792090842,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69701,
+          "episode_hi": 69800,
+          "n": 100,
+          "return_mean": 143.3929514078723,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69801,
+          "episode_hi": 69900,
+          "n": 100,
+          "return_mean": 143.19574005089234,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 69901,
+          "episode_hi": 70000,
+          "n": 100,
+          "return_mean": 142.62801549682297,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70001,
+          "episode_hi": 70100,
+          "n": 100,
+          "return_mean": 143.6182754342511,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70101,
+          "episode_hi": 70200,
+          "n": 100,
+          "return_mean": 141.19739258967473,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70201,
+          "episode_hi": 70300,
+          "n": 100,
+          "return_mean": 143.40156290789207,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70301,
+          "episode_hi": 70400,
+          "n": 100,
+          "return_mean": 143.01089917239108,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70401,
+          "episode_hi": 70500,
+          "n": 100,
+          "return_mean": 143.46319754725306,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70501,
+          "episode_hi": 70600,
+          "n": 100,
+          "return_mean": 143.23691193309537,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70601,
+          "episode_hi": 70700,
+          "n": 100,
+          "return_mean": 142.3158885884736,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70701,
+          "episode_hi": 70800,
+          "n": 100,
+          "return_mean": 142.3909060208751,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70801,
+          "episode_hi": 70900,
+          "n": 100,
+          "return_mean": 142.94220667381546,
+          "timeout_rate": 0.0,
+          "release_rate": 1.0
+        },
+        {
+          "episode_lo": 70901,
+          "episode_hi": 71000,
+          "n": 44,
+          "return_mean": 138.73109485088392,
+          "timeout_rate": 0.022727272727272728,
+          "release_rate": 0.9772727272727273
+        }
+      ]
+    },
+    "tail_row_slices": [
+      {
+        "last_n_rows": 50,
+        "episode_index_range": [
+          70895,
+          70944
+        ],
+        "return_mean": 139.27715999271044,
+        "timeout_rate": 0.02,
+        "release_rate": 0.98
+      },
+      {
+        "last_n_rows": 100,
+        "episode_index_range": [
+          70845,
+          70944
+        ],
+        "return_mean": 141.06429567711365,
+        "timeout_rate": 0.01,
+        "release_rate": 0.99
+      },
+      {
+        "last_n_rows": 200,
+        "episode_index_range": [
+          70745,
+          70944
+        ],
+        "return_mean": 141.85325718203833,
+        "timeout_rate": 0.005,
+        "release_rate": 0.995
+      },
+      {
+        "last_n_rows": 500,
+        "episode_index_range": [
+          70445,
+          70944
+        ],
+        "return_mean": 142.45033814233054,
+        "timeout_rate": 0.002,
+        "release_rate": 0.998
+      }
+    ],
+    "suffix_timeout_run_length": 0,
+    "last_row_timeout": false,
+    "collapse_compare_prev100_vs_last100": {
+      "prev100_timeout_rate_rows_minus200_to_minus100": 0.0,
+      "last100_timeout_rate": 0.01,
+      "delta_timeout_rate_last100_minus_prev100": 0.01
+    },
+    "post_curriculum_correlations": {
+      "n": 68944,
+      "pearson_episode_index_vs_return": 0.43306728029788355,
+      "pearson_episode_length_vs_return": -0.76782927200152
+    },
+    "post_early_vs_late_episode_index": {
+      "early_post_episodes_501_to_600_approx": {
+        "n": 100,
+        "return_mean": -19.38671405876287,
+        "return_std": 6.564567970473063,
+        "return_min": -22.64542278772164,
+        "return_max": 10.376653322813622,
+        "return_p25": -21.695107684868823,
+        "return_p50": -21.00768187367503,
+        "return_p75": -20.86494680432195,
+        "length_mean": 39.14,
+        "length_std": 4.356650089231405,
+        "release_rate": 0.08,
+        "timeout_rate": 0.93,
+        "timeout_count_released0": 92,
+        "timeout_count_horizon": 93
+      },
+      "late_post_last_100_episode_indices": {
+        "n": 100,
+        "return_mean": 141.06429567711365,
+        "return_std": 16.843765528649705,
+        "return_min": -20.92839773386201,
+        "return_max": 146.63595130147232,
+        "return_p25": 142.1512440025358,
+        "return_p50": 143.94216276574235,
+        "return_p75": 145.14053286840948,
+        "length_mean": 11.35,
+        "length_std": 3.172932397641021,
+        "release_rate": 0.99,
+        "timeout_rate": 0.01,
+        "timeout_count_released0": 1,
+        "timeout_count_horizon": 1
+      }
+    }
+  },
+  "files": {
+    "episodes": "/home/rickycastr0/DartsProject/16745/rl_dart_6dof/1MilStats/train_episodes_SAC.csv",
+    "metrics": "/home/rickycastr0/DartsProject/16745/rl_dart_6dof/1MilStats/train_metrics_SAC.csv",
+    "algorithm": "sac"
+  }
+}

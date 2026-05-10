@@ -520,7 +520,7 @@ def plot_analysis(
     ax00.set_ylabel("episode_return")
     ax00.set_title("Training episode returns")
     ax00.grid(True, alpha=0.3)
-    ax00.legend(loc="upper right", fontsize=8)
+    ax00.legend(loc="lower right", fontsize=8)
 
     ax01.scatter(ei, el, s=5, alpha=0.3, c="C2")
     ax01.axvline(x=curriculum_taper_episodes + 0.5, color="gray", ls="--", alpha=0.7, label="curriculum end")

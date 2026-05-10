@@ -1,0 +1,14 @@
+Figure statistics (1MilbestPolicy.pt, eval_seed=1, 400 episodes)
+
+Score boundary scores (on Δy axis): r=0.00635 m -> 77.9950, r=0.01600 m -> 57.9680, r=0.170 m -> 46.5149
+Tier fractions: {'tier_inner_bull': 0.1625, 'tier_outer_bull': 0.4825, 'tier_inside_doubles_wire': 0.3375, 'tier_outside_doubles': 0.0175}
+Fig 3: release fraction 0.9825, timeout 0.0175
+Fig 5 (paper_figures/fig5_landing_density_contour.png):
+  Policy label used in other figures: 1MilbestPolicy
+  Density map: 2D histogram (72x72 bins over ±0.10 m), Gaussian smoothing sigma=1.35 (lighter areas = more landings in that region).
+  Landings included in the density plot: radial miss r <= 0.22 m (n=393/400); excluded as far outliers: 7.
+  All 400 episodes (full sample): mean radial miss=0.0896 m, std=0.5853 m, release rate=0.9825.
+  Ring overlays: same inner/outer bull radii as env ring bonuses (see R_INNER_BULL_M, R_OUTER_BULL_M).
+    inner bull r=6.35 mm (50 pts); outer bull r=16.0 mm (25 pts).
+  Third reward tier in env: r < 0.170 m (inside doubles wire), not drawn on Fig 5.
+PCA eff DOF seed0=7, seed1=5

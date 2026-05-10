@@ -10,6 +10,36 @@ from flight_physics import (
     radial_miss_m,
 )
 
+# Regulation-inspired dartboard radial tiers for `_dartboard_score` ring bonuses (meters).
+# Inner/outer bull match steel-tip specification; outer tier is inside ~doubles wire (~170 mm).
+R_INNER_BULL_M = 0.00635  # 12.7 mm ø inner bull (double bull / 50)
+R_OUTER_BULL_M = 0.016  # ~32 mm ø outer bull (single bull / 25), r ≈ 16 mm
+R_DOUBLES_WIRE_M = 0.170  # simplified outer bonus boundary (~standard doubles wire radius)
+
+
+def dartboard_score_plane(
+    x: float,
+    y: float,
+    *,
+    tx: float = 0.0,
+    ty: float = 0.0,
+) -> float:
+    """
+    Same radial score as `DartEnv._dartboard_score`; bull target defaults to (tx, ty) = (0, 0).
+    """
+    dx = float(x) - float(tx)
+    dy = float(y) - float(ty)
+    r = float(np.sqrt(dx * dx + dy * dy))
+    base = 50.0 * float(np.exp(-2.5 * r * r))
+    ring_bonus = 0.0
+    if r < R_INNER_BULL_M:
+        ring_bonus = 60.0
+    elif r < R_OUTER_BULL_M:
+        ring_bonus = 28.0
+    elif r < R_DOUBLES_WIRE_M:
+        ring_bonus = 8.0
+    return float(base + ring_bonus)
+
 
 @dataclass
 class StepInfo:
@@ -282,20 +312,7 @@ class DartEnv:
 
     def _dartboard_score(self, x: float, y: float) -> float:
         """
-        Smooth radial base plus discrete ring bonuses (tighter tiers → sharper gradient near bull).
-        Here x,y are Δy, Δz relative to bull; target is (target_x, target_y) = (0, 0).
+        Smooth radial base plus discrete ring bonuses; x,y are Δy, Δz relative to bull.
+        Tier radii: `R_INNER_BULL_M`, `R_OUTER_BULL_M`, `R_DOUBLES_WIRE_M`.
         """
-        dx = x - self.target_x
-        dy = y - self.target_y
-        r = float(np.sqrt(dx * dx + dy * dy))
-
-        base = 50.0 * float(np.exp(-2.5 * r * r))
-        ring_bonus = 0.0
-        # Radii in meters; bonuses tuned so ~few-cm accuracy beats ~10 cm throws clearly.
-        if r < 0.035:
-            ring_bonus = 60.0
-        elif r < 0.095:
-            ring_bonus = 28.0
-        elif r < 0.18:
-            ring_bonus = 8.0
-        return float(base + ring_bonus)
+        return dartboard_score_plane(x, y, tx=self.target_x, ty=self.target_y)

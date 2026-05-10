@@ -6,23 +6,16 @@ Use to see how timing alignment and radial miss move the scalar reward.
 from __future__ import annotations
 
 import argparse
-import json
+import os
+import sys
+
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _ROOT not in sys.path:
+    sys.path.insert(0, _ROOT)
 
 import numpy as np
 
-
-def dartboard_score_plane(x: float, y: float) -> float:
-    dx, dy = x - 0.0, y - 0.0
-    r = float(np.sqrt(dx * dx + dy * dy))
-    base = 50.0 * float(np.exp(-2.5 * r * r))
-    ring_bonus = 0.0
-    if r < 0.035:
-        ring_bonus = 60.0
-    elif r < 0.095:
-        ring_bonus = 28.0
-    elif r < 0.18:
-        ring_bonus = 8.0
-    return float(base + ring_bonus)
+from env import dartboard_score_plane
 
 
 def terminal_reward_components(
