@@ -1,14 +1,25 @@
-Figure statistics (1MilbestPolicy.pt, eval_seed=1, 400 episodes)
+Figure statistics (policy_finalSAC.pt, eval_seed=1, 400 episodes)
 
 Score boundary scores (on Δy axis): r=0.00635 m -> 77.9950, r=0.01600 m -> 57.9680, r=0.170 m -> 46.5149
-Tier fractions: {'tier_inner_bull': 0.1625, 'tier_outer_bull': 0.4825, 'tier_inside_doubles_wire': 0.3375, 'tier_outside_doubles': 0.0175}
-Fig 3: release fraction 0.9825, timeout 0.0175
+Tier fractions: {'tier_inner_bull': 0.45, 'tier_outer_bull': 0.3875, 'tier_inside_doubles_wire': 0.1625, 'tier_outside_doubles': 0.0}
+Fig 3: release fraction 1.0000, timeout 0.0000
 Fig 5 (paper_figures/fig5_landing_density_contour.png):
-  Policy label used in other figures: 1MilbestPolicy
+  Policy label used in other figures: policy_finalSAC
   Density map: 2D histogram (72x72 bins over ±0.10 m), Gaussian smoothing sigma=1.35 (lighter areas = more landings in that region).
-  Landings included in the density plot: radial miss r <= 0.22 m (n=393/400); excluded as far outliers: 7.
-  All 400 episodes (full sample): mean radial miss=0.0896 m, std=0.5853 m, release rate=0.9825.
+  Landings included in the density plot: radial miss r <= 0.22 m (n=400/400); excluded as far outliers: 0.
+  All 400 episodes (full sample): mean radial miss=0.0099 m, std=0.0081 m, release rate=1.0000.
   Ring overlays: same inner/outer bull radii as env ring bonuses (see R_INNER_BULL_M, R_OUTER_BULL_M).
     inner bull r=6.35 mm (50 pts); outer bull r=16.0 mm (25 pts).
   Third reward tier in env: r < 0.170 m (inside doubles wire), not drawn on Fig 5.
-PCA eff DOF seed0=7, seed1=5
+PCA eff DOF seed0=7, seed1=7
+
+--- extra analyses (extra_analyses.py) ---
+Fig 6 critic calibration: Pearson r=0.4867, slope=0.9608, intercept=10.0762, RMSE=6.9431, N=400
+Fig 7 reset-noise sweep (release_rate, mean_dist, std_dist) per sigma_theta (rad):
+  sigma=0.00: rel=1.000, mean_dist=0.0099, std_dist=0.0094 (n=200, eval_seed=18)
+  sigma=0.05: rel=1.000, mean_dist=0.0113, std_dist=0.0100 (n=200, eval_seed=18)
+  sigma=0.10: rel=1.000, mean_dist=0.0198, std_dist=0.1108 (n=200, eval_seed=18)
+  sigma=0.15: rel=0.990, mean_dist=0.0156, std_dist=0.0140 (n=200, eval_seed=18)
+  sigma=0.20: rel=0.975, mean_dist=0.0244, std_dist=0.1150 (n=200, eval_seed=18)
+Fig 8 PCA trajectory projection: PC1=0.6595, PC2=0.1547, n_episodes=400
+Fig 9 policy entropy: mean entropy at step 1 = 3.335, at last step = -2.280, T_max=14, N=400

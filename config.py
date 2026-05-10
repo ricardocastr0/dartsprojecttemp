@@ -13,7 +13,7 @@ class Config:
     # Environment
     max_steps: int = 40
     dt: float = 0.04
-    k_tau: float = 7.5
+    k_tau: float = 15.0
     damping: float = 1.2
     max_vel: float = 12.0
     reset_angle_low: float = -0.3

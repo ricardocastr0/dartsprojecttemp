@@ -3,10 +3,13 @@
 Generate paper figures (300 DPI). Run from repo root:
   python3 paper_figures/generate_paper_figures.py
 
-Fig 2 vs Fig 5:
-  - Fig 2 tiers match env dartboard ring bonuses: inner bull, outer bull, inside doubles wire;
-    see `R_INNER_BULL_M`, `R_OUTER_BULL_M`, `R_DOUBLES_WIRE_M` in env.py.
-  - Fig 5 draws the same inner/outer bull radii as overlays on the landing-density plot.
+Checkpoint: ``checkpoints/policy_finalSAC.pt`` unless ``PAPER_CHECKPOINT`` is set
+(see paper_figures/analysis_decisions.md for the best-vs-final decision).
+Training curves (Fig 1): ``PAPER_TRAIN_METRICS`` or first match among
+``paper_runs/regulation_1m/train_metrics_SAC.csv``, ``1MilStats/1Mil_metrics.csv`` (bundled 1M run), ``logs/...``
+
+Fig 2 tiers match env dartboard ring bonuses (see ``R_INNER_BULL_M``, ``R_OUTER_BULL_M``, ``R_DOUBLES_WIRE_M``).
+Fig 5 overlays inner/outer bull radii on landing-density contours.
 """
 from __future__ import annotations
 
@@ -38,8 +41,7 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import Circle
 from sklearn.decomposition import PCA
 
-# Paper eval defaults — align with eval_outputs/1mil_best_seed1/
-CHECKPOINT_NAME = "1MilbestPolicy.pt"
+# Paper eval defaults (checkpoint resolved at runtime; see resolve_paper_checkpoint())
 EVAL_SEED_MAIN = 1  # figures 2, 3, 5
 # Drop rare huge misses from density-plot input (full-sample stats still from all episodes).
 LANDING_DATA_RMAX_M = 0.22
@@ -66,6 +68,63 @@ from env import (  # noqa: E402
     R_OUTER_BULL_M,
     dartboard_score_plane,
 )
+
+
+def _first_existing_file(rel_candidates: list[str]) -> str | None:
+    for rel in rel_candidates:
+        p = os.path.join(_ROOT, rel)
+        if os.path.isfile(p):
+            return p
+    return None
+
+
+def resolve_paper_checkpoint() -> str:
+    env_ckpt = os.environ.get("PAPER_CHECKPOINT")
+    if env_ckpt:
+        if os.path.isfile(env_ckpt):
+            return env_ckpt
+        raise FileNotFoundError(f"PAPER_CHECKPOINT set but not found: {env_ckpt}")
+    p = _first_existing_file(
+        [
+            "checkpoints/policy_finalSAC.pt",
+            "checkpoints/policy_bestSAC.pt",
+            "paper_runs/policy_finalSAC.pt",
+        ]
+    )
+    if p is None:
+        raise FileNotFoundError(
+            "No SAC checkpoint found (try checkpoints/policy_finalSAC.pt or set PAPER_CHECKPOINT)."
+        )
+    return p
+
+
+def _train_metrics_usable(path: str, *, min_data_rows: int = 1) -> bool:
+    try:
+        with open(path, newline="") as f:
+            n = sum(1 for _ in f)
+        return n >= min_data_rows + 1
+    except OSError:
+        return False
+
+
+def resolve_train_metrics_csv() -> str | None:
+    env_m = os.environ.get("PAPER_TRAIN_METRICS")
+    if env_m:
+        p = env_m if os.path.isabs(env_m) else os.path.join(_ROOT, env_m)
+        if os.path.isfile(p) and _train_metrics_usable(p):
+            return p
+        print(f"Warning: PAPER_TRAIN_METRICS missing or empty: {env_m}", file=sys.stderr)
+    for rel in (
+        "paper_runs/regulation_1m/train_metrics_SAC.csv",
+        "paper_runs/train_metrics_SAC.csv",
+        "logs_sac_regulation_1m/train_metrics_SAC.csv",
+        "1MilStats/1Mil_metrics.csv",
+        "logs/train_metrics_SAC.csv",
+    ):
+        p = os.path.join(_ROOT, rel)
+        if os.path.isfile(p) and _train_metrics_usable(p):
+            return p
+    return None
 
 
 def effective_dof_95(explained_ratio: np.ndarray) -> int:
@@ -120,8 +179,8 @@ def print_csv_preview(path: str, max_rows: int = 3) -> None:
         print("  row:", row)
 
 
-def fig1_sac_only_no_ddpg(out_dir: str, sac_metrics_path: str) -> None:
-    """DDPG logs not in repo — plot SAC 1M curves only + annotation."""
+def fig1_sac_training_curves(out_dir: str, sac_metrics_path: str) -> None:
+    """Periodic SAC eval metrics vs environment steps (from train_metrics_SAC.csv)."""
     steps = []
     mr, rr, ld = [], [], []
     with open(sac_metrics_path, newline="") as f:
@@ -134,7 +193,7 @@ def fig1_sac_only_no_ddpg(out_dir: str, sac_metrics_path: str) -> None:
 
     fig, axes = plt.subplots(1, 3, figsize=(12.5, 3.8))
     ax0, ax1, ax2 = axes
-    ax0.plot(steps, mr, color="C0", lw=2, label="SAC (1M train)")
+    ax0.plot(steps, mr, color="C0", lw=2, label="SAC (eval rollouts)")
     ax0.set_xlabel("Environment step")
     ax0.set_ylabel("Mean eval reward")
     ax0.set_title("Mean reward (periodic eval)")
@@ -153,15 +212,9 @@ def fig1_sac_only_no_ddpg(out_dir: str, sac_metrics_path: str) -> None:
     ax2.set_title("Mean radial miss")
     ax2.grid(True, alpha=0.3)
 
-    note = (
-        "DDPG comparison unavailable: no train_metrics.csv found in repo.\n"
-        "Search: glob **/train_metrics.csv → 0 files; logs*/ → only train_metrics_SAC.csv.\n"
-        "Generate DDPG logs:  python3 train.py --total-env-steps 1000000 --seed 0 --log-dir logs_ddpg_paper"
-    )
-    fig.text(0.5, -0.02, note, ha="center", va="top", fontsize=8, family="monospace", wrap=True)
-    fig.suptitle("Training curves: SAC (1M) — DDPG overlay pending", y=1.02, fontsize=11)
+    fig.suptitle("SAC training (periodic evaluation)", y=1.02, fontsize=11)
     fig.tight_layout()
-    outp = os.path.join(out_dir, "fig1_training_sac_vs_ddpg_placeholder.png")
+    outp = os.path.join(out_dir, "fig1_training_curves.png")
     fig.savefig(outp, dpi=300, bbox_inches="tight")
     plt.close(fig)
     print(f"Saved {outp}")
@@ -481,10 +534,11 @@ def main() -> None:
     out_dir = os.path.join(_ROOT, "paper_figures")
     os.makedirs(out_dir, exist_ok=True)
 
-    print("=== File tree summary: eval_outputs/ & 1MilStats/ ===")
+    print("=== Paper-relevant paths (see paper_runs/README.txt) ===")
     for label, base in [
+        ("paper_runs", os.path.join(_ROOT, "paper_runs")),
+        ("checkpoints", os.path.join(_ROOT, "checkpoints")),
         ("eval_outputs", os.path.join(_ROOT, "eval_outputs")),
-        ("1MilStats", os.path.join(_ROOT, "1MilStats")),
     ]:
         print(f"\n[{label}]")
         if not os.path.isdir(base):
@@ -493,20 +547,26 @@ def main() -> None:
         for root, _, files in os.walk(base):
             for fn in sorted(files):
                 fp = os.path.join(root, fn)
-                sz = os.path.getsize(fp)
+                try:
+                    sz = os.path.getsize(fp)
+                except OSError:
+                    continue
                 rel = os.path.relpath(fp, _ROOT)
                 print(f"  {rel}  ({sz} bytes)")
 
-    sac_metrics = os.path.join(_ROOT, "1MilStats", "1Mil_metrics.csv")
-    sac_ep = os.path.join(_ROOT, "1MilStats", "1Mil_episodes.csv")
-    print_csv_preview(sac_metrics)
-    print_csv_preview(sac_ep)
+    sac_metrics = resolve_train_metrics_csv()
+    if sac_metrics is None:
+        print(
+            "Skipping Fig 1: no usable train_metrics_SAC.csv (train with "
+            "--log-dir paper_runs/regulation_1m or set PAPER_TRAIN_METRICS).",
+            file=sys.stderr,
+        )
+    else:
+        print_csv_preview(sac_metrics)
+        fig1_sac_training_curves(out_dir, sac_metrics)
 
-    # Fig 1
-    fig1_sac_only_no_ddpg(out_dir, sac_metrics)
-
-    ckpt = os.path.join(_ROOT, "1MilStats", CHECKPOINT_NAME)
-    policy_short = CHECKPOINT_NAME.replace(".pt", "")
+    ckpt = resolve_paper_checkpoint()
+    policy_short = os.path.basename(ckpt).replace(".pt", "")
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # Figs 2,3,5: match eval_outputs/1mil_best_seed1 (best checkpoint, eval seed 1)
@@ -563,7 +623,7 @@ def main() -> None:
     std_miss = float(meta_main["_meta_std_dist"])
     release_rate = float(meta_main["_meta_release_rate"])
     with open(stats_path, "w") as f:
-        f.write(f"Figure statistics ({CHECKPOINT_NAME}, eval_seed={EVAL_SEED_MAIN}, 400 episodes)\n\n")
+        f.write(f"Figure statistics ({os.path.basename(ckpt)}, eval_seed={EVAL_SEED_MAIN}, 400 episodes)\n\n")
         f.write(
             f"Score boundary scores (on Δy axis): "
             f"r={R_INNER_BULL_M:.5f} m -> {b1:.4f}, "
@@ -591,21 +651,6 @@ def main() -> None:
         )
         f.write(f"PCA eff DOF seed0={dof0}, seed1={dof1}\n")
     print(f"Wrote {stats_path}")
-
-    # Fig 1 readme for DDPG
-    readme = os.path.join(out_dir, "FIG1_DDPG_INSTRUCTIONS.txt")
-    with open(readme, "w") as f:
-        f.write(
-            "DDPG training logs were NOT found in this repository.\n\n"
-            "Paths searched:\n"
-            "  - Recursive glob for **/train_metrics.csv → 0 files\n"
-            "  - logs/, logs_sac_*/, 1MilStats/, checkpoints/ → only train_metrics_SAC.csv patterns\n\n"
-            "To generate a comparable DDPG run (same total steps as SAC when possible):\n"
-            "  cd rl_dart_6dof\n"
-            "  python3 train.py --total-env-steps 1000000 --seed 0 --log-dir logs_ddpg_1m\n\n"
-            "Then merge/replot Fig 1 by loading logs_ddpg_1m/train_metrics.csv alongside 1MilStats/1Mil_metrics.csv.\n"
-        )
-    print(f"Wrote {readme}")
 
 
 if __name__ == "__main__":

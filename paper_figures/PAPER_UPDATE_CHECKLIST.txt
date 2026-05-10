@@ -1,0 +1,159 @@
+Paper LaTeX — update checklist (final run analysis)
+====================================================
+Use this while you analyze your latest training/eval. Tick items in your editor
+as you fix the IEEEtran draft. Source of truth for reward geometry: env.py
+
+
+---------------------------------------------------------------------------
+A. Env / Methods (must match code)
+---------------------------------------------------------------------------
+[ ] Terminal dartboard score piecewise tiers — replace any legacy radii (e.g.
+    0.035 / 0.095 / 0.180 m) with the values actually in env.py:
+
+        R_INNER_BULL_M   = 0.00635 m   (inner bull / double bull)
+        R_OUTER_BULL_M   = 0.016 m     (outer bull)
+        R_DOUBLES_WIRE_M = 0.170 m     (third ring-bonus tier)
+
+    Ring bonuses unchanged in code: +60 / +28 / +8 on top of 50*exp(-2.5 r^2).
+
+[ ] Define in Methods whether tiers are "regulation-style simulator tiers" vs
+    a literal tournament wiring map (one sentence avoids referee confusion).
+
+[ ] Any prose that said "double bull radius 0.035 m" or "bull 0.095 m" — rewrite
+    using mm-scale inner/outer bull or neutral language ("inner tier", etc.).
+
+[ ] Verify other reward constants still match code: σ_h, step penalty, timeout,
+    terminal combination r_T = r_hit + 0.2*r_score + ... (grep env.py if needed).
+
+
+---------------------------------------------------------------------------
+B. Experimental protocol (one story everywhere)
+---------------------------------------------------------------------------
+[ ] Pick evaluation episode count N and use the SAME N in:
+        Methods (Evaluation), Results, Tables, Abstract (if it mentions N).
+
+[ ] Training budget: confirm total env steps (e.g. 10^6) matches trainSAC run;
+    remove stray "100,000 steps" if that was an old draft error.
+
+[ ] Stochastic vs deterministic eval: paper says tanh(μ) in Methods — confirm
+    evaluate.py / paper figures use the same mode.
+
+[ ] Checkpoint naming: if you cite 1MilbestPolicy / policy_bestSAC.pt, match what
+    you actually evaluated for the "final run."
+
+
+---------------------------------------------------------------------------
+C. Numbers to refresh from the final run (fill in as you go)
+---------------------------------------------------------------------------
+Training logs (train_metrics_SAC.csv or 1MilStats/1Mil_metrics.csv):
+    Final step: _______________
+    Release rate @ 1M (or last checkpoint): _______________
+    Mean landing dist @ 1M (training eval): _______________
+    Note any anomaly (e.g. 600k collapse): still present? _______________
+
+Deterministic evaluation (same checkpoint as paper):
+    Episodes N: _______________    Seed(s): _______________
+    Release rate: _______________
+    Mean radial miss d (m): _______________    Std: _______________
+    Mean terminal dartboard score: _______________    Std: _______________
+
+Tier fractions (from landings, using CURRENT tier radii):
+    Inner bull   r < 0.00635 m : ______%
+    Outer bull   0.00635 ≤ r < 0.016 m : ______%
+    Inside wire  0.016 ≤ r < 0.170 m : ______%
+    Outside      r ≥ 0.170 m : ______%
+
+PCA (12-D joint state, protocol as in paper):
+    PC1 explained variance: ______%    PC2: ______%
+    Cumulative at k=2: ______%    Effective DOF @ 95%: ______
+    (If seed/checkpoint varies, report range or single canonical run.)
+
+Torque variance (per joint): paste or point to figure — joints ______ dominant.
+
+
+---------------------------------------------------------------------------
+D. LaTeX sections often divergent — reconcile explicitly
+---------------------------------------------------------------------------
+[ ] Abstract: no claims that contradict Results (PCA %, DOF, mean distance).
+
+[ ] Introduction (contributions): if it still says "~97% variance in 2 PCs" or
+    "2-DOF manifold," align with actual PCA subsection or delete/revise.
+
+[ ] Results vs Discussion vs Conclusion: pick ONE statement for:
+        - effective dimensionality (k at 95% variance, or # of PCs for 97%)
+        - mean landing distance / score / release rate (same eval table)
+
+[ ] Conclusion: remove or replace any placeholder/wrong number (e.g. nonsensical
+    mean distance, wrong episode count, 97%/2-DOF if Results say otherwise).
+
+
+---------------------------------------------------------------------------
+E. Figures and tables (regenerate after final checkpoint)
+---------------------------------------------------------------------------
+From repo root (after checkpoint + metrics paths are correct):
+
+    python3 paper_figures/generate_paper_figures.py
+    python3 evaluate.py --checkpoint <ckpt> --episodes <N> --seed <s> \
+        --output-dir eval_outputs/paper_seed1 --print-cfg \
+        --landing-heatmap --dual-pca-rollout-split
+
+[ ] Fig 1 — training curves — CSV path matches final run (see paper_runs/README
+    or PAPER_TRAIN_METRICS / 1MilStats/1Mil_metrics.csv).
+
+[ ] Fig 2 — score histogram — tier boundary lines match env.dartboard_score_plane.
+
+[ ] Fig 3 — release-step histogram.
+
+[ ] Fig 4 — PCA — caption matches reported PC1/PC2/cumulative DOF text.
+
+[ ] Fig 5 — landing density — rings match inner/outer bull radii; caption matches
+    tier language in Methods.
+
+[ ] Table: eval_results — all rows from same protocol; footnote if mixing seeds.
+
+[ ] Table: checkpoint_summary — rows from actual metrics CSV; 600k row if still
+    relevant.
+
+[ ] (NEW) Fig 6 — critic value calibration (paper_figures/fig6_critic_calibration.png).
+    Caption should call out: slope ≈ 1, constant offset is consistent with the
+    SAC entropy-augmented value target (Q learns r + α H, plot is r-only).
+
+[ ] (NEW) Fig 7 — robustness to initial-condition noise
+    (paper_figures/fig7_robustness_reset_noise.png). Sweep is N(0, σ_θ) added on
+    top of fresh reset; report the table from figure_stats.txt directly.
+
+[ ] (NEW) Fig 8 — PCA trajectory projection
+    (paper_figures/fig8_pca_trajectory_projection.png). Quote PC1 + PC2
+    cumulative variance (≈ 81%) and the "fan" interpretation alongside Fig 4.
+
+[ ] (NEW) Fig 9 — policy entropy across the throw
+    (paper_figures/fig9_policy_entropy_per_step.png). Highlight the
+    monotone decrease (entropy at step 1 ≈ +3.3 nats, at last step ≈ −2.3 nats)
+    as evidence the policy commits as the wind-up completes.
+
+
+---------------------------------------------------------------------------
+F. Policy vs reward change (integrity sentence)
+---------------------------------------------------------------------------
+[ ] If the policy was trained BEFORE the regulation-tier env change: either
+    (i) retrain with current env and report only new numbers, OR
+    (ii) scope the paper clearly to the training MDP used for that checkpoint.
+
+    If you trained a NEW policy with updated dartboard: state training date /
+    env commit or "reward as in env.py §dartboard_score_plane."
+
+
+---------------------------------------------------------------------------
+G. Optional cleanup (navigation)
+---------------------------------------------------------------------------
+[ ] Grep LaTeX for: 0.035, 0.095, 0.18, 200 episodes, 100{,}000, 97\\%, 2-DOF,
+    0.8908 — each hit should be intentional or fixed.
+
+[ ] bibliography / citations — unchanged unless you added new sources.
+
+
+---------------------------------------------------------------------------
+Last filled: _______________   Checkpoint file: _______________
+Notes:
+_____________________________________________________________________________
+_____________________________________________________________________________
